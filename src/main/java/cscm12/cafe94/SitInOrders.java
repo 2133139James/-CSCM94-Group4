@@ -1,7 +1,7 @@
 package cscm12.cafe94;
 
 /**
- * [SitInOrders]
+ * 
  * Sub class for handling sit in orders.
  * @author Patrick Rose
  * @version 1.0
@@ -19,7 +19,7 @@ public class SitInOrders {
         this.drink = drink;
     }
     /**
-     * [submitSitInOrder]
+     * submitSitInOrder
      * Adds the values of the SitInOrders object to the database.
      */
     public void submitSitInOrder(){
@@ -38,7 +38,7 @@ public class SitInOrders {
     }
 
     /**
-     * [markSitInOrderCompleted]
+     * markSitInOrderCompleted
      * Method for the chef to mark an order that is complete.
      * @param orderID
      */
