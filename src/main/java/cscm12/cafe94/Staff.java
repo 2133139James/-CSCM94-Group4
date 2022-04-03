@@ -16,7 +16,7 @@ public class Staff{
     private SimpleStringProperty staffUsername;
     private SimpleStringProperty staffPassword;
 
-    /**[ManageStaff]
+    /**
      * Constructor to create staff objects from the api or manipulate them.
      * @param staffFName Staff's first name.
      * @param staffLName Staff's last name.
@@ -34,7 +34,7 @@ public class Staff{
         this.staffPassword = new SimpleStringProperty(staffPassword);
     }
 
-    /**[Getters and Setters]
+    /**Getters and Setters
      * Used to fill up the constructor as ManageStaffs field variables are private.*/
     public String getStaffFName() {
         return staffFName.get();
