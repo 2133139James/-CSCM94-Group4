@@ -12,13 +12,13 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class OrderType {
-    /**[Field Variables]
+    /**Field Variables
      * These are for setting up stages to be displayed in the application. */
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    /**   [switchToDelivery]
+    /**   switchToDelivery
      Switches to Delivery Orders page.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
@@ -29,7 +29,7 @@ public class OrderType {
         stage.setScene(scene);
         stage.show();
     }
-    /**   [switchToTableService]
+    /**   switchToTableService
      Switches to Table Service page.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
@@ -40,7 +40,7 @@ public class OrderType {
         stage.setScene(scene);
         stage.show();
     }
-    /**   [switchToTakeaway]
+    /**   switchToTakeaway
      Switches to Takeaway page.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
