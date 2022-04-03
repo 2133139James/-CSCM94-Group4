@@ -18,19 +18,19 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import static cscm12.cafe94.StaffLoginController.staffSession;
 
-/**[StaffHomepage]
+/**
  * Class which handles staffs custom homepage with functions based on their role.
  * @author Sumi Sunuwar
  * @version 1.1 */
 public class StaffHomepageController implements Initializable {
 
-    /**[Field Variables]
+    /**Field Variables
      * These are for setting up stages to be displayed in the application. */
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    /**[TextField]
+    /**TextField
      * Text boxes to fill appropriate information to edit, delete or add staff. */
     @FXML
     private Label staffType;
@@ -43,7 +43,7 @@ public class StaffHomepageController implements Initializable {
     @FXML
     private Label staffHoursToWorkDay;
 
-    /**[getStaffHomeInfo]
+    /**getStaffHomeInfo
      This method is used to get the staff homepage information.
      This includes the staffs first name, surname, hours and the staff type. */
     public void getStaffHomeInfo() {
@@ -73,7 +73,7 @@ public class StaffHomepageController implements Initializable {
         }
     }
 
-    /**   [switchToStaffLogin]
+    /**   switchToStaffLogin
      Switches to staffs login page.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
@@ -85,7 +85,7 @@ public class StaffHomepageController implements Initializable {
         stage.show();
     }
 
-    /**  [switchToManager]
+    /**  switchToManager
      Switches to managers page.
      This page gives access to @switchToManager and @switchToManageStaff.
      @param event triggers button to go to the fxml upon clicking. */
@@ -98,7 +98,7 @@ public class StaffHomepageController implements Initializable {
         stage.show();
     }
 
-    /**  [switchToManageStaff]
+    /**  switchToManageStaff
      Switches to manage staff page.
      This page gives access to @getStaffTable, @newStaff, @editStaff and @deleteStaff.
      @param event triggers button to go to the fxml upon clicking. */
@@ -111,7 +111,7 @@ public class StaffHomepageController implements Initializable {
         stage.show();
     }
 
-    /**[initialize]
+    /**initialize
      Switches to Managers page.
      @param location location of the method.
      @param resources resources of the method. */
