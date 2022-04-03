@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
- * [TakeawayOrders]
+ * 
  * Sub class for handling takeaway orders.
  * @author Patrick Rose
  * @version 1.0
@@ -24,7 +24,7 @@ public class TakeawayOrders{
     }
 
     /**
-     * [submitTakeawayOrder]
+     * submitTakeawayOrder
      * Adds the values of the TakeawayOrders object to the database.
      */
     public void submitTakeawayOrder(){
@@ -42,7 +42,7 @@ public class TakeawayOrders{
     }
 
     /**
-     * [markTakeawayOrderCompleted]
+     * markTakeawayOrderCompleted
      * Method for the chef to mark an order that is complete.
      * @param orderID
      */
@@ -79,7 +79,7 @@ public class TakeawayOrders{
     //Setters
 
     /**
-     * [setTakeawayWaitTime]
+     * setTakeawayWaitTime
      * Method to retrieve the data from the database relating to
      * the wait time for the individual items in a Delivery order
      */
