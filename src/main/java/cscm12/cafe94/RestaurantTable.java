@@ -34,7 +34,7 @@ public class RestaurantTable {
         }
 
     /**
-     * [getBookings]
+     * getBookings
      * Retrieves all bookings associated with a table from the database for frontend display.
      * @return ObservableList of all bookings for that table.
      */
