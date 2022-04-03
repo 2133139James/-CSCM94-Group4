@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
- * [ManageStaff]
+ * 
  * Responsible for filling up with staff information.
  * @author Sumi Sunuwar
  * @version 1.1*/
@@ -63,7 +63,7 @@ public class StaffController implements Initializable {
     private TableColumn<Staff, String> fieldStaffPassword;
 
     /**
-     * [getManageStaffTable]
+     * getManageStaffTable
      * This is a method is used to extract the data from the SQL database.
      * This is so that it's formatted into a list of staff objects.
      * This will be used for @getStaffTable in @switchToManageStaff.
@@ -96,7 +96,7 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [getStaffTable]
+     * getStaffTable
      * This is a method is used to get the extracted SQL data.
      * This is for @switchToManageStaff.*/
     public void getStaffTable() {
@@ -115,7 +115,7 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [staffTableSQLCommand]
+     * staffTableSQLCommand
      * This is a method is used to execute SQL queries in the staff table.
      * Mainly used for @newStaff, @editStaff and @deleteStaff buttons.
      * This is for @switchToManageStaff.
@@ -134,7 +134,7 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [newStaff]
+     * newStaff
      * Adds new staff data and updates table in @switchToManageStaff.
      * The username is the primary key, no duplicates allowed.*/
     private void newStaff() {
@@ -146,7 +146,7 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [editStaff]
+     * editStaff
      * Edits current staff's data and updates table in @switchToManageStaff.*/
     private void editStaff() {
         String staff = "UPDATE Staff SET StaffType = '" + newStaffType.getText() + "', StaffFirst_Name = '" +
@@ -158,7 +158,7 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [deleteStaff]
+     * deleteStaff
      * Deletes staff data and updates table in @switchToManageStaff.*/
     private void deleteStaff() {
         String staff = "DELETE FROM Staff WHERE StaffUsername = '" + newStaffUsername.getText() + "'";
@@ -167,7 +167,7 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [ManageStaffButtonActionEvents]
+     * ManageStaffButtonActionEvents
      * If and else for action events when using the @switchToManageStaff table buttons.
      * @param e is a trigger for button presses*/
     @FXML
@@ -183,7 +183,7 @@ public class StaffController implements Initializable {
         }
     }
 
-    /**   [switchToStaffLogin]
+    /**   switchToStaffLogin
      Switches to staffs login page.
      @param event is to trigger fxml swap */
     @FXML
@@ -195,7 +195,7 @@ public class StaffController implements Initializable {
         stage.show();
     }
 
-    /**   [switchToManager]
+    /**   switchToManager
      Switches to Managers page.
      @param event is to trigger fxml swap */
     @FXML
