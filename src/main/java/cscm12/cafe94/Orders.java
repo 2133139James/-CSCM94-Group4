@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * [Orders]
+ * 
  * Class for recieving and displaying orders.
  * @author Patrick Rose
  * @version 1.0
@@ -22,7 +22,7 @@ public class Orders {
     }
 
     /**
-     * [showIncomplete]
+     * showIncomplete
      * Gets all orders that are yet to be completed to display to the chef.
      */
 
@@ -46,7 +46,7 @@ public class Orders {
     }
 
     /**
-     * [orderTotal]
+     * orderTotal
      * Method to return the total price of an order.
      * @param referenceNumber
      * @return total
