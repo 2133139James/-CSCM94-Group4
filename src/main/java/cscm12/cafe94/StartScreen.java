@@ -18,7 +18,7 @@ import java.util.Objects;
  */
 
 public class StartScreen {
-    /**[Field Variables]
+    /**Field Variables
      * These are for setting up stages to be displayed in the application. */
     private Stage stage;
     private Scene scene;
@@ -27,7 +27,7 @@ public class StartScreen {
     @FXML
     private Button switchStaffButton, switchCustButton;
 
-    /**   [switchToStaffLogin]
+    /**   switchToStaffLogin
      Switches to staffs login page.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
@@ -38,7 +38,7 @@ public class StartScreen {
         stage.setScene(scene);
         stage.show();
     }
-    /**   [switchToOrderType]
+    /**   switchToOrderType
      Switches to page where customers select their order type.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
