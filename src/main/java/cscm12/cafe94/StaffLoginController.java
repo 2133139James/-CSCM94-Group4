@@ -14,7 +14,7 @@ import java.sql.*;
 import java.util.Objects;
 
 /**
- * [StaffLogin]
+ * 
  * Responsible for logging in staff to their correct homepage.
  * @author Sumi Sunuwar
  * @version 1.1*/
@@ -30,7 +30,7 @@ public class StaffLoginController {
     public static String staffSession;
 
     /**
-     * [switchToStaffAccount]
+     * switchToStaffAccount
      * Loggs staff into to their appropriate staff role homepage FXML.
      * Stores the unique username using @getStaffHomeInfo.
      * @param event triggers upon button is pressed.
