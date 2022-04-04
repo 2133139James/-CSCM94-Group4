@@ -199,7 +199,7 @@ public class StaffController implements Initializable {
      Switches to Managers page.
      @param event is to trigger fxml swap */
     @FXML
-    public void switchToManageStaff(ActionEvent event) throws IOException {
+    public void switchToManager(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ManageStaff.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

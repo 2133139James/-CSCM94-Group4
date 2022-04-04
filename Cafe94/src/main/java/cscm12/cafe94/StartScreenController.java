@@ -6,11 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import java.io.FileInputStream;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import javax.swing.text.html.ImageView;
+import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -27,9 +27,14 @@ public class StartScreenController {
     private Scene scene;
     private Parent root;
 
-    @FXML
-    private ImageView littleChefView;
-    //private Image littleChef = new Image(getClass().getResourceAsStream("pngkit_ratatouille-png_9388574.png"));
+    public void start(Stage stage){
+        Image littleChef = new Image("pngkit_ratatouille-png_9388574");
+
+        ImageView imageView1 = new ImageView();
+        imageView1.setImage(littleChef);
+
+    }
+
 
     /**   [switchToStaffLogin]
      Switches to staffs login page.

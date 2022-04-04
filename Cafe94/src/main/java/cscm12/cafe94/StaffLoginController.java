@@ -51,7 +51,7 @@ public class StaffLoginController {
 
             while (resultSet.next()) {
                 if (resultSet.getString("StaffType").equals("Manager")) {
-                    fxml = ("Manager.fxml");
+                    fxml = ("ManageStaff.fxml");
                     staffSession = resultSet.getString("StaffUsername");
                 }
                 else if (resultSet.getString("StaffType").equals("Chef")) {

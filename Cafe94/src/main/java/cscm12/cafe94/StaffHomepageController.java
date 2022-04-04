@@ -91,7 +91,7 @@ public class StaffHomepageController implements Initializable {
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
     public void switchToManager(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Manager.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ManageStaff.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
