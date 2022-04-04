@@ -35,10 +35,6 @@
       <Label fx:id="staffHoursWorked" layoutX="126.0" layoutY="119.0" prefHeight="18.0" prefWidth="91.0" />
       <ToolBar layoutY="440.0" prefHeight="40.0" prefWidth="720.0">
         <items>
-            <Button fx:id="staffManageStaffButton" mnemonicParsing="false" onAction="#switchToManageStaff" prefHeight="26.0" prefWidth="54.0" text="Staff" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Table" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Event" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Report" />
             <Button fx:id="staffLogoutButton" mnemonicParsing="false" onAction="#switchToStaffLogin" text="Logout" />
         </items>
       </ToolBar>
