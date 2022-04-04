@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class Testing {
 
 
+
+
     public static void main(String[] args){
 
         KitchenHandler handler = new KitchenHandler();
@@ -33,6 +35,9 @@ public class Testing {
 
         booking.book();
 
+        DeliveryOrders delivery = new DeliveryOrders(1, "x", 1, 1,
+        1, 10);
+        delivery.setDeliveryDelivered(10);
 
 
 
