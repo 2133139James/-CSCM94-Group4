@@ -15,7 +15,9 @@ import java.util.Objects;
  * Holds methods for the Complete Order fxmls
  * @author Ryan Noscoe
  * @version 1.1*/
-public class CompleteOrderController {
+// Should be called CompleteOrderController but
+// gives error??
+public class CompleteOrder {
     /**[Field Variables]
      * These are for setting up stages to be displayed in the application. */
     private Stage stage;
@@ -66,11 +68,11 @@ public class CompleteOrderController {
         stage.setScene(scene);
         stage.show();
     }
-    /**   [switchToOrders]
+    /**   [switchToOrderType]
      Switches to landing page page.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
-    public void switchToOrders(ActionEvent event) throws IOException {
+    public void switchToOrderType(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("OrderType.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

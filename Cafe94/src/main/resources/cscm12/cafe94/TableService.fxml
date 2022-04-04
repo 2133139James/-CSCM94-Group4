@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.CompleteOrderController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.CompleteOrder">
    <children>
       <Text layoutX="115.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cafe 94 - Table Service">
          <font>
@@ -40,7 +40,7 @@
       </Text>
       <TextField layoutX="165.0" layoutY="144.0" />
       <Text layoutX="60.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sit in Customer ID:" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToOrders" text="Back To Order" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToOrderType" text="Back To Order" />
       <Button layoutX="508.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToFinishOrderTab" text="Place Order" />
    </children>
 </Pane>
