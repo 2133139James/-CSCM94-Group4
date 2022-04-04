@@ -112,6 +112,10 @@ public class Staff{
         return staffPassword;
     }
 
+
+    /**
+     * Uploads staff values to database.
+     */
     public void uploadStaff(){
         DatabaseHandler handler = new DatabaseHandler();
         handler.newEntry("Staff", "'" + staffUsername.get() + "',  '"
@@ -120,6 +124,9 @@ public class Staff{
                 "Syntax error.");
     }
 
+    /**
+     * Edits staff entry with matching username.
+     */
     public void editStaff(){
         DatabaseHandler handler = new DatabaseHandler();
         handler.editEntry("Staff", "StaffUsername", staffUsername.get(),
@@ -130,6 +137,10 @@ public class Staff{
                 "Constraint error.");
     }
 
+
+    /**
+     * Deletes staff with matching username.
+     */
     public void deleteStaff(){
         DatabaseHandler handler = new DatabaseHandler();
         handler.deleteEntry("Staff", "StaffUsername", staffUsername.get(),
