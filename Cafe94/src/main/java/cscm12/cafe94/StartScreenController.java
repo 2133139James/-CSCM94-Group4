@@ -7,15 +7,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.util.Objects;
 
 /**
  * [StartScreenController]
  * Holds methods for the Start Screen fxml.
- * @author Sumi Sunuwar
+ * @author Sumi Sunuwar, Ryan Noscoe
  * @version 1.1*/
 
 public class StartScreenController {
@@ -26,7 +28,8 @@ public class StartScreenController {
     private Parent root;
 
     @FXML
-    private Button switchStaffButton, switchCustButton;
+    private ImageView littleChefView;
+    //private Image littleChef = new Image(getClass().getResourceAsStream("pngkit_ratatouille-png_9388574.png"));
 
     /**   [switchToStaffLogin]
      Switches to staffs login page.
