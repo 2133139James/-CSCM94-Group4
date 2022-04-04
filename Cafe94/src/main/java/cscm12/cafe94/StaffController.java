@@ -20,7 +20,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
- * [ManageStaff]
  * Responsible for filling up with staff information.
  * @author Sumi Sunuwar
  * @version 1.1*/
@@ -111,25 +110,6 @@ public class StaffController implements Initializable {
             staffTable.setItems(staff);
         } catch (NullPointerException n) {
             System.out.println(" ");
-        }
-    }
-
-    /**
-     * [staffTableSQLCommand]
-     * This is a method is used to execute SQL queries in the staff table.
-     * Mainly used for @newStaff, @editStaff and @deleteStaff buttons.
-     * This is for @switchToManageStaff.
-     * @param staff takes in a staff data to manipulate */
-    private void staffTableSQLCommand(String staff) {
-        DatabaseHandler staffDatabase = new DatabaseHandler();
-        Connection connect = staffDatabase.database();
-        try {
-            Statement statement = connect.createStatement();
-            statement.executeUpdate(staff);
-        } catch (SQLIntegrityConstraintViolationException e) {
-            System.out.println("Username already exists.");
-        } catch (Exception ex) {
-            ex.printStackTrace();
         }
     }
 
