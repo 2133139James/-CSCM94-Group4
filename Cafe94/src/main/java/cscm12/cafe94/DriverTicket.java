@@ -18,4 +18,7 @@ public class DriverTicket extends Ticket {
         this.deliveryAddress = deliveryAddress;
         this.driverName = driverName;
     }
+
+
+
 }

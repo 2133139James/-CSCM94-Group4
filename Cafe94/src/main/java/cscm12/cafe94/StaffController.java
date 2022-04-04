@@ -63,7 +63,6 @@ public class StaffController implements Initializable {
     private TableColumn<Staff, String> fieldStaffPassword;
 
     /**
-     * [getManageStaffTable]
      * This is a method is used to extract the data from the SQL database.
      * This is so that it's formatted into a list of staff objects.
      * This will be used for @getStaffTable in @switchToManageStaff.
@@ -100,6 +99,8 @@ public class StaffController implements Initializable {
      * This is a method is used to get the extracted SQL data.
      * This is for @switchToManageStaff.*/
     public void getStaffTable() {
+        // factory design pattern
+        ///
         ObservableList<Staff> staff = getManageStaffTable();
         try {
             fieldStaffFName.setCellValueFactory(cellData -> cellData.getValue().staffFNameProperty());
@@ -107,7 +108,6 @@ public class StaffController implements Initializable {
             fieldStaffType.setCellValueFactory(cellData -> cellData.getValue().staffTypeProperty());
             fieldHoursToWork.setCellValueFactory(cellData -> cellData.getValue().staffHoursToWorkProperty());
             fieldStaffUsername.setCellValueFactory(cellData -> cellData.getValue().staffUsernameProperty());
-            fieldStaffPassword.setCellValueFactory(cellData -> cellData.getValue().staffPasswordProperty());
             staffTable.setItems(staff);
         } catch (NullPointerException n) {
             System.out.println(" ");
@@ -138,31 +138,49 @@ public class StaffController implements Initializable {
      * Adds new staff data and updates table in @switchToManageStaff.
      * The username is the primary key, no duplicates allowed.*/
     private void newStaff() {
+        Staff newStaff = new Staff(newStaffFName.getText(), newStaffLName.getText(), newStaffType.getText(),
+                        Integer.parseInt(newHoursToWork.getText()), newStaffUsername.getText(),
+                        newStaffPassword.getText());
+        newStaff.uploadStaff();
+
+        /*
         String staff = "INSERT Staff VALUES ('" + newStaffUsername.getText() + "',  '"
                 + newStaffType.getText() + "','" + newStaffFName.getText() + "','" + newStaffLName.getText()
                 + "','" + newStaffPassword.getText() + "','" + newHoursToWork.getText() + "')";
         staffTableSQLCommand(staff);
+         */
         getStaffTable();
     }
 
     /**
-     * [editStaff]
      * Edits current staff's data and updates table in @switchToManageStaff.*/
     private void editStaff() {
+        Staff editStaff = new Staff(newStaffFName.getText(), newStaffLName.getText(), newStaffType.getText(),
+                Integer.parseInt(newHoursToWork.getText()), newStaffUsername.getText(),
+                newStaffPassword.getText());
+        editStaff.editStaff();
+
+        /*
         String staff = "UPDATE Staff SET StaffType = '" + newStaffType.getText() + "', StaffFirst_Name = '" +
                 newStaffFName.getText() + "',StaffLast_Name = '" + newStaffLName.getText() + "', StaffPassword = '"
                 + newStaffPassword.getText() + "', HoursToWork = '" + newHoursToWork.getText() + "' " +
                 "WHERE StaffUsername = '" + newStaffUsername.getText() + "'";
         staffTableSQLCommand(staff);
+         */
         getStaffTable();
     }
 
     /**
-     * [deleteStaff]
      * Deletes staff data and updates table in @switchToManageStaff.*/
     private void deleteStaff() {
+        Staff deletedStaff = new Staff(newStaffFName.getText(), newStaffLName.getText(), newStaffType.getText(),
+                Integer.parseInt(newHoursToWork.getText()), newStaffUsername.getText(),
+                newStaffPassword.getText());
+        deletedStaff.deleteStaff();
+        /*
         String staff = "DELETE FROM Staff WHERE StaffUsername = '" + newStaffUsername.getText() + "'";
         staffTableSQLCommand(staff);
+         */
         getStaffTable();
     }
 
@@ -207,7 +225,7 @@ public class StaffController implements Initializable {
         stage.show();
     }
 
-    /**   [switchToAccount]
+    /**
      Switches to Account page.
      @param event is to trigger fxml swap */
     @FXML
