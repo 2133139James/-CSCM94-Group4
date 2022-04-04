@@ -85,7 +85,7 @@ public class FoodItem {
         DatabaseHandler handler = new DatabaseHandler();
         try {
             handler.newEntry("MenuItems (ItemName, ItemType, Price, TimeToMake, " +
-                            "IsVegetarian, IsSpecial", "'"+ itemName +
+                            "IsVegetarian, IsSpecial)", "'"+ itemName +
                             "', '" + itemType +
                             "', '"+ price +
                             "', '" + timeToMake +
@@ -101,11 +101,12 @@ public class FoodItem {
         DatabaseHandler handler = new DatabaseHandler();
         String id = String.valueOf(foodID);
         try {
-            handler.editEntry("MenuItems", "ItemId", id,
-                    "ItemName='" +itemName +
-                            "', Price='" + price +
-                            "', ItemType='" + itemType +
-                            "', IsVegetarian='" + isVegetarian + "'",
+            handler.editEntry("MenuItems (ItemName, Price, ItemType, IsVegetarian",
+                    "ItemId", id,
+                    "'" +itemName +
+                            "', " + price +
+                            ", '" + itemType +
+                            "', " + isVegetarian,
                     "Database Error. Entries may be in incorrect format.");
         } catch (NullPointerException e){
             System.out.println("A field is empty.");

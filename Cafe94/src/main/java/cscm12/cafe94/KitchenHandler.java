@@ -42,7 +42,7 @@ public class KitchenHandler extends DatabaseHandler {
             ResultSet resultSet = checkDatabase.executeQuery();
             KitchenTicket ticket = null;
 
-            while (resultSet.next())
+            while (resultSet.next()) {
                 ticket = new KitchenTicket(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
@@ -50,6 +50,7 @@ public class KitchenHandler extends DatabaseHandler {
                         resultSet.getString(5),
                         false);
                 ticketList.add(ticket);
+            }
         } catch (NullPointerException n) {
             System.out.println(" ");
         } catch (Exception e) {

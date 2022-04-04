@@ -1,6 +1,11 @@
 package cscm12.cafe94;
 
+import javafx.collections.ObservableList;
+
+import java.sql.Array;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Testing {
 
@@ -10,7 +15,9 @@ public class Testing {
         KitchenHandler handler = new KitchenHandler();
         handler.changeSpecial(3);
 
-        System.out.println(handler.getTickets());
+        ObservableList<KitchenTicket> results = handler.getTickets();
+
+        System.out.println(results.size());
 
 
         DateTimeHelper helper = new DateTimeHelper();
@@ -25,6 +32,7 @@ public class Testing {
         System.out.println(booking.checkTimeslot());
 
         booking.book();
+
 
 
 
