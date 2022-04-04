@@ -115,25 +115,6 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [staffTableSQLCommand]
-     * This is a method is used to execute SQL queries in the staff table.
-     * Mainly used for @newStaff, @editStaff and @deleteStaff buttons.
-     * This is for @switchToManageStaff.
-     * @param staff takes in a staff data to manipulate */
-    private void staffTableSQLCommand(String staff) {
-        DatabaseHandler staffDatabase = new DatabaseHandler();
-        Connection connect = staffDatabase.database();
-        try {
-            Statement statement = connect.createStatement();
-            statement.executeUpdate(staff);
-        } catch (SQLIntegrityConstraintViolationException e) {
-            System.out.println("Username already exists.");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    /**
      * [newStaff]
      * Adds new staff data and updates table in @switchToManageStaff.
      * The username is the primary key, no duplicates allowed.*/
