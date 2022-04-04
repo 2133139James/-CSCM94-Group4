@@ -75,14 +75,42 @@ public class Booking {
      */
     public void uploadBooking() {
         DatabaseHandler handler = new DatabaseHandler();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String input = bookingDate.format(formatter);
         try {
-            handler.newEntry("Bookings", "CustomerUserID='" + custID +
-                            "', numberOfGuests='" + numberOfGuests +
-                            "', tableID='" + tableID +
-                            "', bookingDate='" + bookingDate + "'",
+            handler.newEntry("BookingTables (CustomerID,NumberGuests,TableID,BookingTime) ",
+                         custID +
+                            ", " + numberOfGuests +
+                            ", " + tableID +
+                            ", '" + input + "'",
                     "Database Error. Entries may be in incorrect format.");
         } catch (NullPointerException e) {
             System.out.println("A field is empty.");
+        }
+    }
+
+    /** Makes a database check to see if booking time is free for a table using @checkTimeSlot
+     * then if true uploads the booking to the database using @uploadBooking.
+     */
+    public void book(){
+        boolean slotIsFree = checkTimeslot();
+        if (slotIsFree){
+            uploadBooking();
+        } else{
+            System.out.println("Table is booked for this timeslot.");
+        }
+        return;
+    }
+
+    public void approveBooking(){
+        String booking = String.valueOf(bookingID);
+        try {
+            DatabaseHandler handler = new DatabaseHandler();
+            handler.editEntry("BookingTables", "BookingID",
+                     booking, "IsApproved=1",
+                    "Database value error.");
+        } catch (Exception e) {
+            System.out.println("");
         }
     }
 
@@ -91,13 +119,16 @@ public class Booking {
      */
     public void editBooking() {
         DatabaseHandler handler = new DatabaseHandler();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String id = String.valueOf(bookingID);
+        String input = bookingDate.format(formatter);
         try {
-            handler.editEntry("Bookings", "bookingID",
-                    "bookingID='" + bookingID,
-                    "', CustomerUserID='" + custID +
-                            "', numberOfGuests='" + numberOfGuests +
-                            "', tableID='" + tableID +
-                            "', bookingDate='" + bookingDate + "'",
+            handler.editEntry("Bookings", "BookingID",
+                     id,
+                    ", CustomerID=" + custID +
+                            ", NumberGuests=" + numberOfGuests +
+                            ", TableID=" + tableID +
+                            ", BookingTime='" + input + "'",
                     "Database Error. Entries may be in incorrect format.");
         } catch (NullPointerException e) {
             System.out.println("A field is empty.");
@@ -111,15 +142,11 @@ public class Booking {
         DatabaseHandler handler = new DatabaseHandler();
         String id = String.valueOf(bookingID);
         try {
-            handler.deleteEntry("Bookings", "bookingID", id,
+            handler.deleteEntry("BookingTables", "BookingID", id,
                     "May not exist.");
         } catch (Exception e) {
             System.out.println();
         }
-    }
-
-    public void approveBooking(){
-
     }
 
     /**
@@ -138,7 +165,7 @@ public class Booking {
         try {
             String query = "SELECT BookingTime from BookingTables WHERE TableID = " + tableID +
                     " AND BookingTime > '" + minString + "' AND BookingTime < '" + maxString
-                    + "'";
+                    + "' AND IsApproved=1";
             System.out.println(query);
             PreparedStatement checkDatabase = connect.prepareStatement(query);
             ResultSet resultSet = checkDatabase.executeQuery();
