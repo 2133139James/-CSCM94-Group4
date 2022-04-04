@@ -15,10 +15,16 @@ public class Testing {
 
         DateTimeHelper helper = new DateTimeHelper();
         LocalDateTime date =  DateTimeHelper.convert(2023, 04 ,14, 12, 40 );
-        Booking booking = new Booking( 1, 1, 3,
+        Booking booking = new Booking( 10, 1, 3,
                 8, date);
 
         System.out.println(booking.checkTimeslot());
+
+        booking.approveBooking();
+
+        System.out.println(booking.checkTimeslot());
+
+        booking.book();
 
 
 

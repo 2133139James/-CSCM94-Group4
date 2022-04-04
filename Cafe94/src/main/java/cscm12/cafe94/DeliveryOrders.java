@@ -151,8 +151,7 @@ public class DeliveryOrders{
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.waitTime = totalWait + 15; //NEEDS TO BE UNCOMMENTED WHEN RUNNING THE WHOLE SO CAN USE OBJECT ATTRIBUTES
-        //System.out.println(totalWait + 15);
+        this.waitTime = totalWait + 15;
     }
     public void setAddress(String address){
         this.address = address;

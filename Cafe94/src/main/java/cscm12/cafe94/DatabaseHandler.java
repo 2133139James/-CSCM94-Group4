@@ -109,6 +109,9 @@ public class DatabaseHandler {
 
     /**
      * Used to made edits to entries on the table.
+     * Note: If specifying several values to change put column keys in brackets in the column paramater.
+     * For example to change TableID and IsApproved in BookingTables enter: /n
+     * "BookingTables (TableID, IsApproved)"
      * @param tableName The specified table to be updated
      * @param column The column to search for the identifier.
      * @param identifier The identifier(s) of the entry to edit in SQL syntax.
