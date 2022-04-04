@@ -14,6 +14,8 @@ public class Testing {
 
     public static void main(String[] args){
 
+
+        /*
         KitchenHandler handler = new KitchenHandler();
         handler.changeSpecial(3);
 
@@ -34,7 +36,12 @@ public class Testing {
         DeliveryOrders delivery = new DeliveryOrders(1, "x", 1, 1,
         1, 10);
         delivery.setDeliveryDelivered(10);
+         */
 
+        Staff newStaff = new Staff("b", "t", "Driver",
+                20, "yo",
+                "yo");
+        newStaff.uploadStaff();
 
 
 

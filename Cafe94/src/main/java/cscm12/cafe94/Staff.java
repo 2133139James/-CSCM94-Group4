@@ -2,6 +2,8 @@ package cscm12.cafe94;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import javax.xml.crypto.Data;
+
 /**[ManageStaff]
  * Manage staff class is responsible for being the blank slate for staff information.
  * It receives and fills itself with SQL database for staff objects.
@@ -16,7 +18,7 @@ public class Staff{
     private SimpleStringProperty staffUsername;
     private SimpleStringProperty staffPassword;
 
-    /**[ManageStaff]
+    /**
      * Constructor to create staff objects from the api or manipulate them.
      * @param staffFName Staff's first name.
      * @param staffLName Staff's last name.
@@ -33,6 +35,8 @@ public class Staff{
         this.staffUsername = new SimpleStringProperty(staffUsername);
         this.staffPassword = new SimpleStringProperty(staffPassword);
     }
+
+
 
     /**[Getters and Setters]
      * Used to fill up the constructor as ManageStaffs field variables are private.*/
@@ -107,4 +111,30 @@ public class Staff{
     public SimpleStringProperty staffPasswordProperty() {
         return staffPassword;
     }
+
+    public void uploadStaff(){
+        DatabaseHandler handler = new DatabaseHandler();
+        handler.newEntry("Staff", "'" + staffUsername.get() + "',  '"
+                + staffType.get() + "','" + staffFName.get() + "','" + staffLName.get()
+                + "','" + staffPassword.get() + "','" + hoursToWork.get() + "'",
+                "Syntax error.");
+    }
+
+    public void editStaff(){
+        DatabaseHandler handler = new DatabaseHandler();
+        handler.editEntry("Staff", "StaffUsername", staffUsername.get(),
+                "StaffType = '" + staffType.get() + "', StaffFirst_Name = '" +
+                staffFName.get() + "',StaffLast_Name = '" +
+                        staffLName.get() + "', StaffPassword = '"
+                        + staffPassword.get() + "', HoursToWork = '" + hoursToWork.get() + "'",
+                "Constraint error.");
+    }
+
+    public void deleteStaff(){
+        DatabaseHandler handler = new DatabaseHandler();
+        handler.deleteEntry("Staff", "StaffUsername", staffUsername.get(),
+                "Constraint error.");
+    }
+
+
 }
