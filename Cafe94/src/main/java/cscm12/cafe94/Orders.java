@@ -15,7 +15,7 @@ import java.sql.Statement;
  * @version 1.0
  */
 public class Orders {
-    public Orders(int main, int side, int drink, String order_type, int reference_number) {
+    public Orders(String main, String side, String drink, String order_type, int reference_number) {
     }
     /**
      * [showIncomplete]
@@ -32,9 +32,9 @@ public class Orders {
             ResultSet resultSet = checkDatabase.executeQuery();
             Orders orders;
             while (resultSet.next()){
-                orders = new Orders(resultSet.getInt("Main"),
-                        resultSet.getInt("Side"),
-                        resultSet.getInt("Drink"),
+                orders = new Orders(resultSet.getString("Main"),
+                        resultSet.getString("Side"),
+                        resultSet.getString("Drink"),
                         resultSet.getString("order_type"),
                         resultSet.getInt("reference_number"));
                 outstandingOrders.add(orders);
