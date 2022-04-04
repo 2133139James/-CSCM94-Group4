@@ -15,9 +15,8 @@ import java.util.Objects;
  * Holds methods for the Complete Order fxmls
  * @author Ryan Noscoe
  * @version 1.1*/
-// Should be called CompleteOrderController but
-// gives error??
-public class CompleteOrder {
+
+public class CompleteOrderController {
     /**[Field Variables]
      * These are for setting up stages to be displayed in the application. */
     private Stage stage;

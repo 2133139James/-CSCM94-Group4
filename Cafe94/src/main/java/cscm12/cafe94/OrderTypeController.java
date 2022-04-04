@@ -16,9 +16,8 @@ import java.util.Objects;
  * Holds methods for the Order type fxml
  * @author Sumi Sunuwar
  * @version 1.1*/
-// Should be called OrderTypeController
-//but an unknown error occurs
-public class OrderType {
+
+public class OrderTypeController {
     /**[Field Variables]
      * These are for setting up stages to be displayed in the application. */
     private Stage stage;
