@@ -72,7 +72,7 @@ public class CompleteOrder {
      Switches to landing page page.
      @param event triggers button to go to the fxml upon clicking. */
     @FXML
-    public void switchToOrderType(ActionEvent event) throws IOException {
+    public void switchToOrders(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("OrderType.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
