@@ -23,9 +23,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * [ManageStaff]
- * Responsible for filling up with staff information.
- * @author Sumi Sunuwar
+ * [OrdersController]
+ * Controlling the methods for the Orders class.
+ * @author Patrick Rose
  * @version 1.1*/
 
 public class OrdersController implements Initializable {
