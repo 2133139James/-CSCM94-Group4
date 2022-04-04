@@ -15,10 +15,13 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <TableView layoutX="144.0" layoutY="125.0" prefHeight="200.0" prefWidth="312.0">
+      <TableView fx:id="deliveryTickets" layoutX="110.0" layoutY="125.0" prefHeight="200.0" prefWidth="375.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="deliveryID" prefWidth="75.0" text="Delivery ID" />
+          <TableColumn fx:id="deliveryAddress" prefWidth="75.0" text="Delivery Address" />
+            <TableColumn fx:id="main" prefWidth="75.0" text="Main" />
+            <TableColumn fx:id="side" prefWidth="75.0" text="Side" />
+            <TableColumn fx:id="drink" prefWidth="75.0" text="Drink" />
         </columns>
       </TableView>
       <Button layoutX="29.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToAccounts" text="Profile" />

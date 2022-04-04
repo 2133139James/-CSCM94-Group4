@@ -19,4 +19,16 @@ public class WaiterTicket extends Ticket {
     public void setTableNumber(int tableNumber) {
         this.tableNumber.set(tableNumber);
     }
+
+    public void markSitInOrderServed(){
+        DatabaseHandler handler = new DatabaseHandler();
+        try{
+            handler.tableUpdater("UPDATE SitDownOrders " +
+                            "SET IsServed = 'true' " +
+                            "WHERE SitDownOrderID = " + tableNumber + ";",
+                    "Query may be incorrectly formatted");
+        } catch (NullPointerException e){
+            System.out.println("A field is empty");
+        }
+    }
 }

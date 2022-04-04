@@ -1,5 +1,5 @@
 package cscm12.cafe94;
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,66 +8,51 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import static cscm12.cafe94.StaffLoginController.staffSession;
 
-
-/**
- * Controller class for Waiter.fxml.
- * @author Paul Norman
- * @version 1.0
- */
-public class WaiterController implements Initializable {
+public class DriverController implements Initializable {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-
     @FXML
-    private TableView<WaiterTicket> waiterTickets;
+    private TableView<DriverTicket> deliveryTickets;
     @FXML
-    private TableColumn<WaiterTicket, Number> tableToServe;
+    private TableColumn<DriverTicket, Number> orderID;
     @FXML
-    private TableColumn<WaiterTicket, String> mainToServe;
+    private TableColumn<DriverTicket, String> deliveryAddress;
     @FXML
-    private TableColumn<WaiterTicket, String> sideToServe;
+    private TableColumn<DriverTicket, String> main;
     @FXML
-    private TableColumn<WaiterTicket, String> drinkToServe;
+    private TableColumn<DriverTicket, String> side;
+    @FXML
+    private TableColumn<DriverTicket, String> drink;
 
     public void getTicketTable() {
         // factory design pattern
         ///
-        WaiterHandler handler = new WaiterHandler();
-        ObservableList<WaiterTicket> tickets = handler.getTickets();
+        DeliveryHandler handler = new DeliveryHandler();
+        ObservableList<DriverTicket> tickets = handler.getOrdersForDriver(staffSession);
         try {
-            tableToServe.setCellValueFactory(cellData -> cellData.getValue().getTableNumber());
-            mainToServe.setCellValueFactory(cellData -> cellData.getValue().getMain());
-            sideToServe.setCellValueFactory(cellData -> cellData.getValue().getDrink());
-            drinkToServe.setCellValueFactory(cellData -> cellData.getValue().getSide());
-            waiterTickets.setItems(tickets);
+            orderID.setCellValueFactory(cellData -> cellData.getValue().orderIDProperty());
+            deliveryAddress.setCellValueFactory(cellData -> cellData.getValue().deliveryAddressProperty());
+            main.setCellValueFactory(cellData -> cellData.getValue().getDrink());
+            side.setCellValueFactory(cellData -> cellData.getValue().getDrink());
+            drink.setCellValueFactory(cellData -> cellData.getValue().getSide());
+            deliveryTickets.setItems(tickets);
         } catch (NullPointerException n) {
             System.out.println(" ");
         }
     }
-
-
-
-
-
-
-
-
-
-
 
     @FXML
     public void switchToAccount(ActionEvent event) throws IOException {
@@ -94,8 +79,6 @@ public class WaiterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         getTicketTable();
     }
-
-
 
 
 }
