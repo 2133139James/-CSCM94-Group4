@@ -381,6 +381,26 @@ ON u.Drink=d.MenuItemID;
 
 
 
+CREATE VIEW vDriverTicket AS
+SELECT u.DeliveryOrderID,  m.ItemName as 'Main', 
+s.ItemName as 'Side', d.ItemName as 'Drink', u.DeliveryAddress FROM
+(SELECT 
+DeliveryOrderID, 
+DeliveryMain as Main,
+DeliverySide as Side,
+DeliveryDrink as Drink,
+DeliveryAddress
+FROM [dbo].[DeliveryOrders] WHERE DeliveryOrderCompleted=0 and IsDelivered = 0) as u 
+INNER JOIN [dbo].[MenuItems] as m
+ON u.Main=m.MenuItemID
+INNER JOIN [dbo].[MenuItems] as s
+ON u.Side=s.MenuItemID
+INNER JOIN [dbo].[MenuItems] as d
+ON u.Drink=d.MenuItemID;
+
+
+
+
 --- Finance sheet
 
 CREATE VIEW vMasterOrderSheet AS SELECT
@@ -419,6 +439,8 @@ INNER JOIN [dbo].[MenuItems] as s
 ON u.Side=s.MenuItemID
 INNER JOIN [dbo].[MenuItems] as d
 ON u.Drink=d.MenuItemID;
+
+
 
 ---
 --- View check, sit down orders.
