@@ -26,8 +26,6 @@ public class DeliveryOrders{
         this.drink = drink;
         this.deliveryCustomerID = deliveryCustomerID;
     }
-    public static void main(String[] args){
-    }
     /**
      * [submitDeliveryOrder]
      * Adds the values of the DeliveryOrders object to the database.
@@ -71,7 +69,7 @@ public class DeliveryOrders{
      * @param orderID
      * @param driverUserName
      */
-    public static void assignDriver(int orderID, String driverUserName){
+    public void assignDriver(int orderID, String driverUserName){
         DatabaseHandler handler = new DatabaseHandler();
         try{
             handler.tableUpdater("UPDATE DeliveryOrders" +

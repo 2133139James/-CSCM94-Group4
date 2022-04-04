@@ -17,13 +17,11 @@ import java.sql.Statement;
 public class Orders {
     public Orders(int main, int side, int drink, String order_type, int reference_number) {
     }
-    public static void main(String[] args) {
-    }
     /**
      * [showIncomplete]
      * Gets all orders that are yet to be completed to display to the chef.
      */
-    public static ObservableList<Orders> showIncomplete() {
+    public ObservableList<Orders> showIncomplete() {
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
         ObservableList<Orders> outstandingOrders =  FXCollections.observableArrayList();
@@ -55,7 +53,7 @@ public class Orders {
      * @param orderType
      * @return total
      */
-    public static double orderTotal(int referenceNumber, String orderType) {
+    public double orderTotal(int referenceNumber, String orderType) {
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
         double total = 0.0;

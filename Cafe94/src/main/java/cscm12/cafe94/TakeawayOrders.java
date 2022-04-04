@@ -23,9 +23,6 @@ public class TakeawayOrders{
         this.drink = drink;
         this.takeawayCustomerID = takeawayCustomerID;
     }
-    public static void main(String[] args){
-
-    }
     /**
      * [submitTakeawayOrder]
      * Adds the values of the TakeawayOrders object to the database.
@@ -68,7 +65,7 @@ public class TakeawayOrders{
      * Method for a waiter to mark a takeaway that has been collected
      * @param orderID
      */
-    public static void setDeliveryDelivered(int orderID){
+    public void setDeliveryDelivered(int orderID){
         DatabaseHandler handler = new DatabaseHandler();
         try{
             handler.tableUpdater("UPDATE TakeawayOrders" +
