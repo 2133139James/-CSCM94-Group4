@@ -17,10 +17,6 @@ public class Testing {
         KitchenHandler handler = new KitchenHandler();
         handler.changeSpecial(3);
 
-        ObservableList<KitchenTicket> results = handler.getTickets();
-
-        System.out.println(results.size());
-
 
         DateTimeHelper helper = new DateTimeHelper();
         LocalDateTime date =  DateTimeHelper.convert(2023, 04 ,14, 12, 40 );
