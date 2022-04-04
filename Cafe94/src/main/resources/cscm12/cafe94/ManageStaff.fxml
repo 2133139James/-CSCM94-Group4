@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,6 +21,7 @@
                 <Button fx:id="staffHomepageButton" mnemonicParsing="false" onAction="#switchToManager" prefHeight="26.0" prefWidth="54.0" text="Home" />
                 <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Report" />
                 <Button mnemonicParsing="false" onAction="#switchToStaffLogin" text="Logout" />
+            <Button mnemonicParsing="false" onAction="#switchToAccount" text="Profile" />
             </items>
         </ToolBar>
         <Pane layoutX="1.0" layoutY="74.0" prefHeight="366.0" prefWidth="533.0">

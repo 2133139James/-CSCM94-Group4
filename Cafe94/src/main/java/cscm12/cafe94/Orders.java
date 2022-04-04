@@ -15,15 +15,13 @@ import java.sql.Statement;
  * @version 1.0
  */
 public class Orders {
-    public Orders(int main, int side, int drink, String order_type, int reference_number) {
-    }
-    public static void main(String[] args) {
+    public Orders(String main, String side, String drink, String order_type, int reference_number) {
     }
     /**
      * [showIncomplete]
      * Gets all orders that are yet to be completed to display to the chef.
      */
-    public static ObservableList<Orders> showIncomplete() {
+    public ObservableList<Orders> showIncomplete() {
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
         ObservableList<Orders> outstandingOrders =  FXCollections.observableArrayList();
@@ -34,9 +32,9 @@ public class Orders {
             ResultSet resultSet = checkDatabase.executeQuery();
             Orders orders;
             while (resultSet.next()){
-                orders = new Orders(resultSet.getInt("Main"),
-                        resultSet.getInt("Side"),
-                        resultSet.getInt("Drink"),
+                orders = new Orders(resultSet.getString("Main"),
+                        resultSet.getString("Side"),
+                        resultSet.getString("Drink"),
                         resultSet.getString("order_type"),
                         resultSet.getInt("reference_number"));
                 outstandingOrders.add(orders);
@@ -55,7 +53,7 @@ public class Orders {
      * @param orderType
      * @return total
      */
-    public static double orderTotal(int referenceNumber, String orderType) {
+    public double orderTotal(int referenceNumber, String orderType) {
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
         double total = 0.0;

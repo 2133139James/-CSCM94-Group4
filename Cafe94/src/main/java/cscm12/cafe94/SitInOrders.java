@@ -19,9 +19,6 @@ public class SitInOrders {
         this.drink = drink;
         this.sitInCustomerID = sitInCustomerID;
     }
-
-    public static void main(String [] args){
-    }
     /**
      * [submitSitInOrder]
      * Adds the values of the SitInOrders object to the database.
@@ -48,7 +45,7 @@ public class SitInOrders {
      * Method for the chef to mark an order that is complete.
      * @param orderID
      */
-    public static void markSitInOrderCompleted(int orderID){
+    public void markSitInOrderCompleted(int orderID){
         DatabaseHandler handler = new DatabaseHandler();
         try{
             handler.tableUpdater("UPDATE SitDownOrders " +
@@ -64,7 +61,7 @@ public class SitInOrders {
      * Method for the waitress to mark an order that is served.
      * @param orderID
      */
-    public static void markSitInOrderServed(int orderID){
+    public void markSitInOrderServed(int orderID){
         DatabaseHandler handler = new DatabaseHandler();
         try{
             handler.tableUpdater("UPDATE SitDownOrders " +
