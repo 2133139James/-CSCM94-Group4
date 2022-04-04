@@ -104,11 +104,11 @@ public class TakeawayOrders{
         int totalWait = 0;
         try{
             String sql1 = "SELECT TimeToMake FROM MenuItems " +
-                    "WHERE MenuItemID = '" + main + "';";//main;
+                    "WHERE MenuItemID = '" + main + "';";
             String sql2 = "SELECT TimeToMake FROM MenuItems " +
-                    "WHERE MenuItemID = '" + side  + "';";//side;
+                    "WHERE MenuItemID = '" + side  + "';";
             String sql3 = "SELECT TimeToMake FROM MenuItems " +
-                    "WHERE MenuItemID = '" + drink + "';";//drink;
+                    "WHERE MenuItemID = '" + drink + "';";
             PreparedStatement checkDatabase1 = connect.prepareStatement(sql1);
             ResultSet resultSet1 = checkDatabase1.executeQuery();
             resultSet1.next();

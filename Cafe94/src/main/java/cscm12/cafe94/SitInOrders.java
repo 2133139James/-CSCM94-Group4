@@ -72,7 +72,6 @@ public class SitInOrders {
             System.out.println("A field is empty");
         }
     }
-
     //Getters
     public int getMain(){
         return this.main;
