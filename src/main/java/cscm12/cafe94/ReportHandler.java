@@ -15,15 +15,14 @@ import java.sql.SQLException;
 public class ReportHandler {
 
     //SQL queries for table view
-    static String queryItemOrdered = "SELECT * FROM items_ordered";
-    static String queryOrders = "SELECT * FROM orders";
-    static String queryMenu = "SELECT * FROM menu";
+    static String queryItemOrdered = "SELECT * FROM vMasterOrderSheet";
+    static String queryOrders = "SELECT * FROM vMasterOrderSheet";
+    static String queryMenu = "SELECT * FROM SimpleMenu";
 
     //SQL queries for labels
-    static String queryTS = "SELECT SUM(quantity) FROM items_ordered";
+    static String queryTS = "SELECT SUM(quantity) FROM vItemOrderStack";
     static String queryTotalCost = "SELECT SUM(Total) from vFinanceSheet";
-    static String queryMPI = "select menu_id, SUM(quantity) from items_ordered " +
-            "GROUP BY menu_id ORDER BY quantity ASC";
+    static String queryMPI = "SELECT * FROM vTopItem";
     static String queryTopCustomer = "SELECT c.CustomerUserID FROM Customers as c " +
             "INNER JOIN ( " +
             "SELECT TOP 1 " +

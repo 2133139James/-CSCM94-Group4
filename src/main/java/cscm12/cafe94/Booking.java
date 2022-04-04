@@ -1,9 +1,10 @@
 package cscm12.cafe94;
 
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 /**
  * Class for managing customer sit-in bookings.
@@ -30,7 +31,7 @@ public class Booking {
         return bookingID;
     }
 
-    public int getCustID(){
+    public int getCustID() {
         return this.custID;
     }
 
@@ -71,15 +72,15 @@ public class Booking {
     /**
      * Adds values in Booking object to database.
      */
-    public void uploadBooking(){
+    public void uploadBooking() {
         DatabaseHandler handler = new DatabaseHandler();
         try {
             handler.newEntry("Bookings", "CustomerUserID='" + custID +
-                    "', numberOfGuests='" + numberOfGuests +
-                    "', tableID='" + tableID +
-                    "', bookingDate='" + bookingDate + "'",
+                            "', numberOfGuests='" + numberOfGuests +
+                            "', tableID='" + tableID +
+                            "', bookingDate='" + bookingDate + "'",
                     "Database Error. Entries may be in incorrect format.");
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("A field is empty.");
         }
     }
@@ -87,31 +88,63 @@ public class Booking {
     /**
      * Edits the database booking entry with the same bookingID, using values in Booking object.
      */
-    public void editBooking(){
+    public void editBooking() {
         DatabaseHandler handler = new DatabaseHandler();
         try {
             handler.editEntry("Bookings", "bookingID",
-                        "bookingID='" + bookingID,
-                              "', CustomerUserID='" + custID +
-                                    "', numberOfGuests='" + numberOfGuests +
-                                    "', tableID='" + tableID +
-                                    "', bookingDate='" + bookingDate + "'",
+                    "bookingID='" + bookingID,
+                    "', CustomerUserID='" + custID +
+                            "', numberOfGuests='" + numberOfGuests +
+                            "', tableID='" + tableID +
+                            "', bookingDate='" + bookingDate + "'",
                     "Database Error. Entries may be in incorrect format.");
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("A field is empty.");
         }
     }
 
-    /** Checks datebase if there are other bookings less an hour before or after the requested slot.
-     *
-     * @return <code>boolean</code>, true for no other books and false otherwise.
+    /**
+     * Deletes booking which matches the object.
      */
-    public boolean checkTimeslot(){
+    public void deleteBooking() {
         DatabaseHandler handler = new DatabaseHandler();
-        // TODO
-        return false;
+        String id = String.valueOf(bookingID);
+        try {
+            handler.deleteEntry("Bookings", "bookingID", id,
+                    "May not exist.");
+        } catch (Exception e) {
+            System.out.println();
+        }
+    }
+
+    public void approveBooking(){
 
     }
 
-
+    /**
+     * Checks bookings for a given tableID with a range of one hour before and one hour after. If there
+     * are one or more bookings in that timeslot it will return false.
+     * @return True if timeslot is free, false otherwise.
+     */
+    public boolean checkTimeslot() {
+        LocalDateTime min = bookingDate.plusHours(-1);
+        LocalDateTime max = bookingDate.plusHours(1);
+        DatabaseHandler handler = new DatabaseHandler();
+        Connection connect = handler.database();
+        try {
+            String query = "SELECT BookingTime from Booking WHERE TableID = " + tableID +
+                    " AND > " + min + " AND < " + max;
+            PreparedStatement checkDatabase = connect.prepareStatement(query);
+            ResultSet resultSet = checkDatabase.executeQuery();
+            if (resultSet.next()) {
+                return false;
+            }
+            return true;
+        } catch (NullPointerException n) {
+            System.out.println("Missing input.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

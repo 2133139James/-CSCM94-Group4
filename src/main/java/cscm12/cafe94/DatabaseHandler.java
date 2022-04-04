@@ -11,10 +11,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 
+import static java.lang.Thread.sleep;
+
 public class DatabaseHandler {
 
     /**
      * Connects to database.
+     * Possible SSH error is not permanent and
+     * can be resolved by retrying connection later. This is a known issue with JDBC.
      * @author Paul Norman
      * @return <code>Connection</code> object pointing to the cloud database connection.
      */
@@ -30,11 +34,27 @@ public class DatabaseHandler {
             Connection con = DriverManager.getConnection(url);
             System.out.println("Connection established.");
             return con;
-        } catch (Exception e) {
-            System.out.println("Connection failed.");
-            e.printStackTrace();
-            return null;
+        } catch (Exception e) { //Retry in case of SSH error.
+            System.out.println("Error connecting to server, retrying...");
+            try {
+                sleep(30000);
+            String url = "jdbc:sqlserver://cafe94.database.windows.net:1433;database=cafe94" +
+                    ";user=adminCafe@cafe94;" +
+                    "password=cscm94Group4;" +
+                    "encrypt=false;" +
+                    "trustServerCertificate=false;" +
+                    "hostNameInCertificate=*.database.windows.net;" +
+                    "loginTimeout=120;;";
+            Connection con = DriverManager.getConnection(url);
+            System.out.println("Connection established.");
+            return con;
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            } catch (Exception er){
+                er.printStackTrace();
+            }
         }
+        return null;
     }
     /*
     public static Connection database() {
@@ -145,4 +165,5 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
     }
+
 }

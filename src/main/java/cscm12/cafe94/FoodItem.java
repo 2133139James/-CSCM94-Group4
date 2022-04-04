@@ -8,7 +8,7 @@ package cscm12.cafe94;
 public class FoodItem {
 
 
-    private String foodID;
+    private int foodID;
     private String itemName;
     private String itemType;
     private float price;
@@ -16,7 +16,7 @@ public class FoodItem {
     private boolean isVegetarian;
     private boolean isSpecial;
 
-    public FoodItem(String foodID, String itemName, float price, int timeToMake,
+    public FoodItem(int foodID, String itemName, float price, int timeToMake,
                     boolean isVegetarian, boolean isSpecial){
         if (itemName.toLowerCase().contains("side")){
             this.itemName = "Side";
@@ -33,6 +33,54 @@ public class FoodItem {
         this.isSpecial = isSpecial;
     }
 
+    public void setFoodID(int foodID) {
+        this.foodID = foodID;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setSpecial(boolean special) {
+        isSpecial = special;
+    }
+
+    public void setTimeToMake(int timeToMake) {
+        this.timeToMake = timeToMake;
+    }
+
+    public void setVegetarian(boolean vegetarian) {
+        isVegetarian = vegetarian;
+    }
+
+    public int getFoodID() {
+        return foodID;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public String getItemType() {
+        return itemType;
+    }
+
+    public boolean isVegetarian() {
+        return isVegetarian;
+    }
+
+    public boolean isSpecial() {
+        return isSpecial;
+    }
+
     public void uploadItem(){
         DatabaseHandler handler = new DatabaseHandler();
         try {
@@ -46,6 +94,32 @@ public class FoodItem {
                     "Database Error. Entries may be in incorrect format.");
         } catch (NullPointerException e){
             System.out.println("A field is empty.");
+        }
+    }
+
+    public void editItem(){
+        DatabaseHandler handler = new DatabaseHandler();
+        String id = String.valueOf(foodID);
+        try {
+            handler.editEntry("MenuItems", "ItemId", id,
+                    "ItemName='" +itemName +
+                            "', Price='" + price +
+                            "', ItemType='" + itemType +
+                            "', IsVegetarian='" + isVegetarian + "'",
+                    "Database Error. Entries may be in incorrect format.");
+        } catch (NullPointerException e){
+            System.out.println("A field is empty.");
+        }
+    }
+
+    public void deleteItem(){
+        DatabaseHandler handler = new DatabaseHandler();
+        String id = String.valueOf(foodID);
+        try {
+            handler.deleteEntry("MenuItems", "ItemID", id,
+                    "May not exist.");
+        } catch (Exception e) {
+            System.out.println();
         }
     }
 }

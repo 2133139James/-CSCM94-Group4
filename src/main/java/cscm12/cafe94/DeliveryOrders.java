@@ -5,18 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
- *
+ * [DeliveryOrders]
  * Sub class for handling delivery orders.
  * @author Patrick Rose
  * @version 1.0
  */
 
-public class DeliveryOrders{
+public class DeliveryOrders extends Orders{
     private int waitTime;
     private String address;
     private int main;
     private int side;
     private int drink;
+    private int custID;
 
     public DeliveryOrders(int waitTime, String address, int main, int side, int drink){
         this.waitTime = waitTime;
@@ -27,7 +28,7 @@ public class DeliveryOrders{
     }
 
     /**
-     * submitDelieryOrder
+     * [submitDelieryOrder]
      * Adds the values of the DeliveryOrders object to the database.
      */
     public void submitDeliveryOrder(){
@@ -45,7 +46,7 @@ public class DeliveryOrders{
     }
 
     /**
-     * markDeliveryOrderCompleted
+     * [markDeliveryOrderCompleted]
      * Method for the chef to mark an order that is complete.
      * @param orderID
      */
@@ -62,7 +63,7 @@ public class DeliveryOrders{
     }
 
     /**
-     * assignDriver
+     * [assignDriver]
      * Method to assign a driver to an order
      * @param orderID
      */
@@ -89,7 +90,7 @@ public class DeliveryOrders{
 
     //Setters
     /**
-     * setDeliveryWaitTime
+     * [setDeliveryWaitTime]
      * Method to retrieve the data from the database relating to
      * the wait time for the individual items in a Delivery order
      */
