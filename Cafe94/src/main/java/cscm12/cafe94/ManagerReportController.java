@@ -39,7 +39,9 @@ public class ManagerReportController {
     private TableColumn<ReportTableView, String> columnOne, columnTwo, columnThree,
     columnFour, columnFive;
 
-    Connection con = null;
+
+    DatabaseHandler handler = new DatabaseHandler();
+    Connection con = DatabaseHandler.database();
 
     ObservableList<ReportTableView> data = FXCollections.observableArrayList();
 
@@ -51,7 +53,7 @@ public class ManagerReportController {
     protected void connectSQL () throws SQLException{
 
         try {
-            con = DBConnector.getConnection();
+            con = DatabaseHandler.database();
             circleConnection.setFill(GREEN);
             txtSQLConnection.setText("SQL Database Connection: Active");
             btnConnect.setDisable(true);

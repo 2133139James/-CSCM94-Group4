@@ -66,7 +66,6 @@ public class ReportHandler {
      * @param tblData
      * @throws SQLException
      */
-
     public static void getDataMenu (Connection con, ObservableList data,
                                TableView tblData) throws SQLException {
 
@@ -94,7 +93,6 @@ public class ReportHandler {
      * @param tblData
      * @throws SQLException
      */
-
     public static void getOrders (Connection con, ObservableList data,
                                    TableView tblData) throws SQLException {
         try {
@@ -147,7 +145,6 @@ public class ReportHandler {
      * @return
      * @throws SQLException
      */
-
     public static String getTotalSitting (Connection con) throws SQLException {
 
         String totalOrdered = "";
@@ -175,7 +172,6 @@ public class ReportHandler {
      * @return
      * @throws SQLException
      */
-
     public static String getTotalCost (Connection con) throws SQLException {
 
         String totalCost = null;
@@ -203,7 +199,6 @@ public class ReportHandler {
      * @return
      * @throws SQLException
      */
-
     public static String getMPI (Connection con) throws SQLException {
 
         String mostPopularItem = null;
