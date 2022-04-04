@@ -1,43 +1,45 @@
 package cscm12.cafe94;
 
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  * Superclass for tickets.
  */
 public class Ticket {
 
 
-    private String main;
-    private String side;
-    private String drink;
+    private SimpleStringProperty main;
+    private SimpleStringProperty side;
+    private SimpleStringProperty drink;
 
     public Ticket(String main, String side, String drink) {
-        this.main = main;
-        this.side = side;
-        this.drink = drink;
+        this.main = new SimpleStringProperty(main);
+        this.side = new SimpleStringProperty(side);
+        this.drink = new SimpleStringProperty(drink);
     }
 
-    public String getMain() {
+    public SimpleStringProperty getMain() {
         return main;
     }
 
     public void setMain(String main) {
-        this.main = main;
+        this.main = new SimpleStringProperty(main);
     }
 
-    public String getSide() {
+    public SimpleStringProperty getSide() {
         return side;
     }
 
     public void setSide(String side) {
-        this.side = side;
+        this.side = new SimpleStringProperty(side);
     }
 
-    public String getDrink() {
+    public SimpleStringProperty getDrink() {
         return drink;
     }
 
     public void setDrink(String drink) {
-        this.drink = drink;
+        this.drink = new SimpleStringProperty(drink);
     }
 }

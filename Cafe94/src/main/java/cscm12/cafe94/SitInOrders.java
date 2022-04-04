@@ -59,14 +59,13 @@ public class SitInOrders {
     /**
      * [markSitInOrderServed]
      * Method for the waitress to mark an order that is served.
-     * @param orderID
      */
-    public void markSitInOrderServed(int orderID){
+    public void markSitInOrderServed(){
         DatabaseHandler handler = new DatabaseHandler();
         try{
             handler.tableUpdater("UPDATE SitDownOrders " +
                             "SET IsServed = 'true' " +
-                            "WHERE SitDownOrderID = " + orderID + ";",
+                            "WHERE SitDownOrderID = " + tableNum + ";",
                     "Query may be incorrectly formatted");
         } catch (NullPointerException e){
             System.out.println("A field is empty");

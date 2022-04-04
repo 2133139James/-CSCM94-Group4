@@ -64,7 +64,7 @@ public class StaffController implements Initializable {
     /**
      * This is a method is used to extract the data from the SQL database.
      * This is so that it's formatted into a list of staff objects.
-     * This will be used for @getStaffTable in @switchToManageStaff.
+     * This is used for @getStaffTable in @switchToManageStaff.
      * @return returns staff list for table*/
     public ObservableList<Staff> getManageStaffTable() {
         ObservableList<Staff> staffList = FXCollections.observableArrayList();
@@ -94,7 +94,6 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [getStaffTable]
      * This is a method is used to get the extracted SQL data.
      * This is for @switchToManageStaff.*/
     public void getStaffTable() {
@@ -114,7 +113,6 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [newStaff]
      * Adds new staff data and updates table in @switchToManageStaff.
      * The username is the primary key, no duplicates allowed.*/
     private void newStaff() {
@@ -165,7 +163,6 @@ public class StaffController implements Initializable {
     }
 
     /**
-     * [ManageStaffButtonActionEvents]
      * If and else for action events when using the @switchToManageStaff table buttons.
      * @param e is a trigger for button presses*/
     @FXML
@@ -181,8 +178,8 @@ public class StaffController implements Initializable {
         }
     }
 
-    /**   [switchToStaffLogin]
-     Switches to staffs login page.
+    /**
+     Switches to staff login page.
      @param event is to trigger fxml swap */
     @FXML
     public void switchToStaffLogin(ActionEvent event) throws IOException {
@@ -193,7 +190,7 @@ public class StaffController implements Initializable {
         stage.show();
     }
 
-    /**   [switchToManageStaff]
+    /**
      Switches to Managers page.
      @param event is to trigger fxml swap */
     @FXML
@@ -216,7 +213,7 @@ public class StaffController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    /**   [switchToManagerReport]
+    /**
      Switches to Account page.
      @param event is to trigger fxml swap */
     @FXML
