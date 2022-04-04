@@ -4,10 +4,17 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
+import javafx.stage.Stage;
+import java.net.URL;
 import java.util.*;
 import java.io.IOException;
 import java.sql.Connection;
@@ -20,80 +27,23 @@ import java.sql.Statement;
  * @author Patrick Rose
  * @version 1.0
  */
-public class Orders {
+
+public class Orders{
+
     private SimpleStringProperty main;
     private SimpleStringProperty side;
     private SimpleStringProperty drink;
-    private SimpleStringProperty orderType;
+    private SimpleStringProperty orderTypes;
     private SimpleIntegerProperty referenceNumber;
 
-    public Orders(String main, String side, String drink, String orderType, int referenceNumber) {
+    public Orders(String main, String side, String drink, String orderTypes, int referenceNumber) {
         this.main = new SimpleStringProperty(main);
         this.side = new SimpleStringProperty(side);
         this.drink = new SimpleStringProperty(drink);
-        this.orderType = new SimpleStringProperty(orderType);
+        this.orderTypes = new SimpleStringProperty(orderTypes);
         this.referenceNumber = new SimpleIntegerProperty(referenceNumber);
     }
 
-    @FXML
-    private TableView<Orders> outstandingOrders;
-    @FXML
-    private TableColumn<Orders, Number> fieldOrderRef;
-    @FXML
-    private TableColumn<Orders, String> fieldMain;
-    @FXML
-    private TableColumn<Orders, String> fieldSide;
-    @FXML
-    private TableColumn<Orders, String> fieldDrink;
-    @FXML
-    private TableColumn<Orders, String> fieldOrderType;
-
-    /**
-     * [showIncomplete]
-     * Gets all orders that are yet to be completed to display to the chef.
-     */
-    public ObservableList<Orders> getOutstanding() {
-        DatabaseHandler handler = new DatabaseHandler();
-        Connection connect = handler.database();
-        ObservableList<Orders> outstandingOrders =  FXCollections.observableArrayList();
-        try {
-            Statement statement = connect.createStatement();
-            String sql = "SELECT * FROM vKitchenTickets WHERE IsCompleted = '0'";
-            PreparedStatement checkDatabase = connect.prepareStatement(sql);
-            ResultSet resultSet = checkDatabase.executeQuery();
-            Orders orders;
-            while (resultSet.next()){
-                orders = new Orders(resultSet.getString("Main"),
-                        resultSet.getString("Side"),
-                        resultSet.getString("Drink"),
-                        resultSet.getString("order_type"),
-                        resultSet.getInt("reference_number"));
-                outstandingOrders.add(orders);
-            }
-            statement.close();
-            connect.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return outstandingOrders;
-    }
-    /**
-     * [getOutstandingTable]
-     * This is a method is used to get the extracted SQL data.
-     * This is for @switchToManageStaff.*/
-    public void getOutstandingTable() {
-        ObservableList<Orders> order = getOutstanding();
-        try {
-            fieldOrderRef.setCellValueFactory(cellData -> cellData.getValue().referenceNumberProperty());
-            fieldMain.setCellValueFactory(cellData -> cellData.getValue().mainProperty());
-            fieldSide.setCellValueFactory(cellData -> cellData.getValue().sideProperty());
-            fieldDrink.setCellValueFactory(cellData -> cellData.getValue().drinkProperty());
-            fieldOrderType.setCellValueFactory(cellData -> cellData.getValue().orderTypeProperty());
-            outstandingOrders.setItems(order);
-        } catch (NullPointerException n) {
-            System.out.println(" ");
-        }
-    }
     /**
      * [orderTotal]
      * Method to return the total price of an order.
@@ -101,7 +51,8 @@ public class Orders {
      * @param orderType
      * @return total
      */
-    public double getOrderTotal(int referenceNumber, String orderType) {
+    
+    public static double getOrderTotal(int referenceNumber, String orderType) {
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
         double total = 0.0;
@@ -154,16 +105,16 @@ public class Orders {
         return drink;
     }
 
-    public String orderType() {
-        return orderType.get();
+    public String orderTypes() {
+        return orderTypes.get();
     }
 
-    public void setOrderType(String anOrderType) {
-        orderType.set(anOrderType);
+    public void setOrderTypes(String anOrderTypes) {
+        orderTypes.set(anOrderTypes);
     }
 
-    public SimpleStringProperty orderTypeProperty() {
-        return orderType;
+    public SimpleStringProperty orderTypesProperty() {
+        return orderTypes;
     }
 
     public int referenceNumber() {
