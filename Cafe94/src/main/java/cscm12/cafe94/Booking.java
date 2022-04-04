@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Class for managing customer sit-in bookings.
@@ -19,12 +20,12 @@ public class Booking {
     private int tableID;
     private LocalDateTime bookingDate;
 
-    public Booking(int bookingID, int custID, int numberOfGuests, int tableID, String bookingDate) {
+    public Booking(int bookingID, int custID, int numberOfGuests, int tableID, LocalDateTime bookingDate) {
         this.bookingID = bookingID;
         this.custID = custID;
         this.numberOfGuests = numberOfGuests;
         this.tableID = tableID;
-        this.bookingDate = LocalDateTime.parse(bookingDate);
+        this.bookingDate = bookingDate;
     }
 
     public int getBookingID() {
@@ -129,11 +130,16 @@ public class Booking {
     public boolean checkTimeslot() {
         LocalDateTime min = bookingDate.plusHours(-1);
         LocalDateTime max = bookingDate.plusHours(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String minString = min.format(formatter);
+        String maxString = max.format(formatter);
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
         try {
-            String query = "SELECT BookingTime from Booking WHERE TableID = " + tableID +
-                    " AND > " + min + " AND < " + max;
+            String query = "SELECT BookingTime from BookingTables WHERE TableID = " + tableID +
+                    " AND BookingTime > '" + minString + "' AND BookingTime < '" + maxString
+                    + "'";
+            System.out.println(query);
             PreparedStatement checkDatabase = connect.prepareStatement(query);
             ResultSet resultSet = checkDatabase.executeQuery();
             if (resultSet.next()) {

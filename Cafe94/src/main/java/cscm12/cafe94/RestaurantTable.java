@@ -53,7 +53,7 @@ public class RestaurantTable {
                             resultSet.getInt("CustomerUserID"),
                             resultSet.getInt("numberOfGuests"),
                             resultSet.getInt("tableID"),
-                            resultSet.getString("bookingDate"));
+                            resultSet.getTimestamp("bookingDate").toLocalDateTime());
                     tableBookings.add(booking);
                 }
             } catch (NullPointerException n) {

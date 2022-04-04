@@ -10,6 +10,7 @@ import java.time.temporal.ChronoUnit;
  */
 public class DateTimeHelper {
 
+
     /** For ease of use when using frontend input forms.
      * @param year Input containing year.
      * @param month Input containing month.
@@ -18,7 +19,7 @@ public class DateTimeHelper {
      * @param minute Input containing minute.
      * @return Variable compatible with LocalDateTime object.
      */
-    public LocalDateTime convertInputForm(int year, int month, int day, int hour, int minute){
+    public static LocalDateTime convert(int year, int month, int day, int hour, int minute){
         return LocalDateTime.of(year, month, day, hour, minute, 0);
     }
 
