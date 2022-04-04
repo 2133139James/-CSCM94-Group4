@@ -21,7 +21,7 @@
                 <Button fx:id="staffHomepageButton" mnemonicParsing="false" onAction="#switchToManager" prefHeight="26.0" prefWidth="54.0" text="Home" />
                 <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Report" />
                 <Button mnemonicParsing="false" onAction="#switchToStaffLogin" text="Logout" />
-            <Button mnemonicParsing="false" onAction="#switchToAccount" text="Profile" />
+            <Button mnemonicParsing="false" onAction="#switchToAccounts" text="Profile" />
             </items>
         </ToolBar>
         <Pane layoutX="1.0" layoutY="74.0" prefHeight="366.0" prefWidth="533.0">
