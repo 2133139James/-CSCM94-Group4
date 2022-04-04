@@ -109,12 +109,12 @@ public class OrdersController implements Initializable {
     }
 
 
-    /**   [switchToAccount]
+    /**   [switchToAccounts]
      Switches to Account page.
      @param event is to trigger fxml swap */
     @FXML
     public void switchToAccount(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Account.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Accounts.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
