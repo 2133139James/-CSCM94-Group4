@@ -16,7 +16,9 @@ import java.util.Objects;
  * Holds methods for the Order type fxml
  * @author Sumi Sunuwar
  * @version 1.1*/
-public class OrderTypeController {
+// Should be called OrderTypeController
+//but an unknown error occurs
+public class OrderType {
     /**[Field Variables]
      * These are for setting up stages to be displayed in the application. */
     private Stage stage;
@@ -51,6 +53,17 @@ public class OrderTypeController {
     @FXML
     public void switchToTakeaway(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Takeaway.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    /**   [switchToStartScreen]
+     Switches to the start page.
+     @param event triggers button to go to the fxml upon clicking. */
+    @FXML
+    public void switchToStartScreen(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Cafe94.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
