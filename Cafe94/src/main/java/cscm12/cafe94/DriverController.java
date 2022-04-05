@@ -45,7 +45,7 @@ public class DriverController implements Initializable {
     private TableColumn<DriverTicket, String> drink;
 
     /**
-     * Casts current driver for a specific driver based on their login username;
+     * Casts current deliveries for a specific driver based on their login username;
      */
     public void getTicketTable() {
         DeliveryHandler handler = new DeliveryHandler();

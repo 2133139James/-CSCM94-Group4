@@ -39,4 +39,30 @@ public class WaiterHandler extends DatabaseHandler {
         return ticketList;
     }
 
+    public ObservableList<WaiterTicket> getCollections() {
+        ObservableList<WaiterTicket> ticketList = FXCollections.observableArrayList();
+        DatabaseHandler handler = new DatabaseHandler();
+        Connection connect = handler.database();
+        try {
+            String query = "SELECT * from vCollectionTicket";
+            PreparedStatement checkDatabase = connect.prepareStatement(query);
+            ResultSet resultSet = checkDatabase.executeQuery();
+            WaiterTicket ticket = null;
+
+            while (resultSet.next()) {
+                ticket = new WaiterTicket(resultSet.getInt(1),
+                        resultSet.getString(3),
+                        resultSet.getString(5),
+                        resultSet.getString(4),
+                        0);
+                ticketList.add(ticket);
+            }
+        } catch (NullPointerException n) {
+            System.out.println(" ");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ticketList;
+    }
+
 }

@@ -1,11 +1,6 @@
 package cscm12.cafe94;
 
-/**
- * Class which handles SQL queries to the database.
- *
- * @author Paul Norman
- * @version 1.0
- */
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,6 +8,12 @@ import java.sql.*;
 
 import static java.lang.Thread.sleep;
 
+
+/**
+ * Class which handles SQL queries to the database.
+ * @author Paul Norman
+ * @version 1.0
+ */
 public class DatabaseHandler {
 
     /**

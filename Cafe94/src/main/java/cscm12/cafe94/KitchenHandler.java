@@ -59,6 +59,7 @@ public class KitchenHandler extends DatabaseHandler {
         return ticketList;
     }
 
+
     /** Finishes a kitchen ticket.
      * @param orderID
      * @param orderType

@@ -139,6 +139,18 @@ public class WaiterController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    /**
+     Switches to takeaway collection page.
+     @param event is to trigger fxml swap */
+    public void switchToTakeawayCollection(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TakeawayCollection.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
