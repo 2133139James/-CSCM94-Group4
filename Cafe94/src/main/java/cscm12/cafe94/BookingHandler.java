@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 /**
  * For booking related database calls
  * @author Paul Norman
- * @version 1.0
+ * @version 1.3
  */
 public class BookingHandler extends DatabaseHandler {
 

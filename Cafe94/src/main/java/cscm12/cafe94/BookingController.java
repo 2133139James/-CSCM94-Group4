@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,6 +29,8 @@ public class BookingController implements Initializable {
 
     @FXML
     private Button bookButton;
+    @FXML
+    private Button cancelButton;
     @FXML
     private TextField table;
     @FXML
@@ -48,8 +51,6 @@ public class BookingController implements Initializable {
     private TextField minute;
     @FXML
     private TextField cancelField;
-    @FXML
-    private Label messageText;
 
     /**
      * Checks database for overlapping bookings, makes booking if there isn't one. Informs user

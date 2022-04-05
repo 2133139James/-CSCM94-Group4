@@ -4,7 +4,6 @@ package cscm12.cafe94;
  * @author Paul Norman
  * @version 1.0
  */
-
 public class FoodItem {
 
 

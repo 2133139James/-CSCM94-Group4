@@ -2,6 +2,8 @@ package cscm12.cafe94;
 
 /**
  * Contains customer information, uploads to database.
+ * @author Paul Norman
+ * @version 1.2
  */
 public class Customer {
 

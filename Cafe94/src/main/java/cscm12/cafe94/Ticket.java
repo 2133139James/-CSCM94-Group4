@@ -5,6 +5,8 @@ import javafx.beans.property.SimpleStringProperty;
 
 /**
  * Superclass for tickets.
+ * @author Paul Norman
+ * @Version 1.0
  */
 public class Ticket {
 
