@@ -1,5 +1,9 @@
 package cscm12.cafe94;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 /** Container class for food items. Uploads to databases and makes edits.
  * @author Paul Norman
  * @version 1.0
@@ -78,6 +82,26 @@ public class FoodItem {
 
     public boolean isSpecial() {
         return isSpecial;
+    }
+
+    public SimpleIntegerProperty simpleID(){
+        return new SimpleIntegerProperty(foodID);
+    }
+
+    public SimpleStringProperty simpleName(){
+        return new SimpleStringProperty(itemName);
+    }
+
+    public SimpleStringProperty simpleType(){
+        return new SimpleStringProperty(itemType);
+    }
+
+    public SimpleBooleanProperty simpleVeg(){
+        return new SimpleBooleanProperty(isVegetarian);
+    }
+
+    public SimpleBooleanProperty simpleSpecial(){
+        return new SimpleBooleanProperty(isSpecial);
     }
 
     public void uploadItem(){
