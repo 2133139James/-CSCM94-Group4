@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.BookingController">
    <children>
       <Text layoutX="110.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cafe 94 - Table Booking">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="222.0" layoutY="151.0" prefHeight="25.0" prefWidth="268.0" />
-      <TextField layoutX="222.0" layoutY="192.0" prefHeight="25.0" prefWidth="268.0" />
-      <TextField layoutX="222.0" layoutY="239.0" prefHeight="25.0" prefWidth="268.0" />
-      <TextField layoutX="222.0" layoutY="283.0" prefHeight="25.0" prefWidth="268.0" />
-      <Text layoutX="125.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Details:" textAlignment="CENTER" />
+      <TextField fx:id="table" layoutX="222.0" layoutY="118.0" prefHeight="25.0" prefWidth="268.0" />
+      <TextField fx:id="fName" layoutX="222.0" layoutY="151.0" prefHeight="25.0" prefWidth="268.0" />
+      <TextField fx:id="lName" layoutX="222.0" layoutY="192.0" prefHeight="25.0" prefWidth="268.0" />
+      <TextField fx:id="nGuests" layoutX="222.0" layoutY="239.0" prefHeight="25.0" prefWidth="268.0" />
+      <TextField fx:id="day" layoutX="222.0" layoutY="283.0" prefHeight="25.0" prefWidth="31.0" text="D" />
+      <TextField fx:id="month" layoutX="266.0" layoutY="283.0" prefHeight="25.0" prefWidth="31.0" text="M" />
+      <TextField fx:id="year" layoutX="300.0" layoutY="283.0" prefHeight="25.0" prefWidth="53.0" text="Year" />
+      <TextField fx:id="hour" layoutX="420.0" layoutY="283.0" prefHeight="25.0" prefWidth="31.0" text="H" />
+      <TextField fx:id="minute" layoutX="459.0" layoutY="283.0" prefHeight="25.0" prefWidth="31.0" text="S" />
+      <Text layoutX="94.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requested Table:" textAlignment="CENTER" wrappingWidth="131.001953125" />
       <Text layoutX="130.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="CENTER" />
       <Text layoutX="133.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:" textAlignment="CENTER" />
       <Text layoutX="110.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Guests:" textAlignment="CENTER" />
       <Text layoutX="120.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time of Arrival:" textAlignment="CENTER" />
+      <Button fx:id="bookButton" layoutX="107.0" layoutY="325.0" mnemonicParsing="false" onAction="#book" prefHeight="25.0" prefWidth="106.0" text="Request Booking" />
+      <Button fx:id="cancelButton" layoutX="475.0" layoutY="325.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+      <TextField fx:id="cancelField" layoutX="356.0" layoutY="325.0" prefHeight="25.0" prefWidth="106.0" text="Enter BookingID" />
    </children>
 </Pane>

@@ -7,6 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
+/**
+ * Handles Waiter.fxml. Contains methods for serving food and approving bookings.
+ */
 public class WaiterHandler extends DatabaseHandler {
 
     public ObservableList<WaiterTicket> getTickets() {

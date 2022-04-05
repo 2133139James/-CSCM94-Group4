@@ -17,11 +17,11 @@ import java.time.format.DateTimeFormatter;
  */
 public class Booking {
 
-    private int bookingID;
-    private int custID;
-    private int numberOfGuests;
-    private int tableID;
-    private LocalDateTime bookingDate;
+    private static int bookingID;
+    private static int custID;
+    private static int numberOfGuests;
+    private static int tableID;
+    private static LocalDateTime bookingDate;
 
     public Booking(int bookingID, int custID, int numberOfGuests, int tableID, LocalDateTime bookingDate) {
         this.bookingID = bookingID;
@@ -89,7 +89,7 @@ public class Booking {
     /**
      * Adds values in Booking object to database.
      */
-    public void uploadBooking() {
+    public static void uploadBooking() {
         DatabaseHandler handler = new DatabaseHandler();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String input = bookingDate.format(formatter);
@@ -108,7 +108,7 @@ public class Booking {
     /** Makes a database check to see if booking time is free for a table using @checkTimeSlot
      * then if true uploads the booking to the database using @uploadBooking.
      */
-    public void book(){
+    public static void book(){
         boolean slotIsFree = checkTimeslot();
         if (slotIsFree){
             uploadBooking();
@@ -154,7 +154,7 @@ public class Booking {
     /**
      * Deletes booking which matches the object.
      */
-    public void deleteBooking() {
+    public static void deleteBooking() {
         DatabaseHandler handler = new DatabaseHandler();
         String id = String.valueOf(bookingID);
         try {
@@ -170,7 +170,7 @@ public class Booking {
      * are one or more bookings in that timeslot it will return false.
      * @return True if timeslot is free, false otherwise.
      */
-    public boolean checkTimeslot() {
+    public static boolean checkTimeslot() {
         LocalDateTime min = bookingDate.plusHours(-1);
         LocalDateTime max = bookingDate.plusHours(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

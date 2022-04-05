@@ -84,12 +84,20 @@ public class WaiterController implements Initializable {
         }
     }
 
+    /**
+     * Sets selected SitDownOrder to IsServed.
+     * @param e
+     */
     public void serve(ActionEvent e){
         int index = waiterTickets.getSelectionModel().getSelectedIndex();
         WaiterTicket ticket = waiterTickets.getItems().get(index);
         getTicketTable();
     }
 
+    /**
+     * Sets selected Booking to IsApproved.
+     * @param e
+     */
     public void book(ActionEvent e) {
         int index = approveBookings.getSelectionModel().getSelectedIndex();
         Booking booking = approveBookings.getItems().get(index);

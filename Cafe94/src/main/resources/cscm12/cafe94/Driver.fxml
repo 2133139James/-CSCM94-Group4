@@ -9,7 +9,7 @@
    <children>
       <Button layoutX="326.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToStaffLogin" prefHeight="17.0" prefWidth="130.0" text="Logout" />
       <Text fx:id="completeOrdersTextDel" layoutX="225.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Orders (Delivery)" />
-      <Button fx:id="deliverOrderButton" layoutX="144.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Deliver" />
+      <Button fx:id="deliverOrderButton" onAction="#deliver" layoutX="144.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Deliver" />
       <Text fx:id="titleDriver" layoutX="222.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Driver">
          <font>
             <Font size="24.0" />

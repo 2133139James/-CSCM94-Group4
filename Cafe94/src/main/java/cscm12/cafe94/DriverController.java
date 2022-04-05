@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -24,6 +25,9 @@ public class DriverController implements Initializable {
     private Scene scene;
     private Parent root;
 
+
+    @FXML
+    private Button deliverOrderButton;
     @FXML
     private TableView<DriverTicket> deliveryTickets;
     @FXML
@@ -52,6 +56,15 @@ public class DriverController implements Initializable {
         } catch (NullPointerException n) {
             System.out.println(" ");
         }
+    }
+
+    /** Sets delivery order to IsDelivered.
+     * @param event
+     */
+    public void deliver(ActionEvent event){
+        int index = deliveryTickets.getSelectionModel().getSelectedIndex();
+        DriverTicket ticket = deliveryTickets.getItems().get(index);
+        getTicketTable();
     }
 
     @FXML

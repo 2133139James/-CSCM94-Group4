@@ -22,8 +22,6 @@ public class BookingHandler extends DatabaseHandler {
      * @return Observable list of unapproved bookings.
      */
     public ObservableList<Booking> getUnapprovedBookings(){
-
-
         ObservableList<Booking> bookingList = FXCollections.observableArrayList();
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
