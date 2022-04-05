@@ -26,9 +26,9 @@
             <Button text="Current Menu"
                     fx:id="btnMenu" onAction="#showMenu" disable="true"/>
             <Button text="Table Bookings"
-                    fx:id="btnShowBookings" onAction="#showBookings" disable="true"/>
+                    fx:id="btnShowBookings" disable="true"/>
             <Button text="Customers"
-                    fx:id="btnShowCustomers" onAction="#showCustomers" disable="true"/>
+                    fx:id="btnShowCustomers" disable="true"/>
             <Button text="Load Orders"
                     fx:id="btnOrders" disable="true" onAction="#showOrders"/>
             <Button text="Home"
@@ -52,8 +52,6 @@
             <padding>
                 <Insets right="15" left="15" bottom="15" top="15"/>
             </padding>
-            <Label text="Total Sitting Today"/>
-            <Label text="0" fx:id="lblSitting"/>
             <Label text="Total Profit"/>
             <Label text="0" fx:id="lblTotalCost"/>
             <Label text="Most Popular Item (ID)"/>

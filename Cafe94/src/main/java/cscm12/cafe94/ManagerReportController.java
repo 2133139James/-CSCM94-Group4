@@ -20,10 +20,10 @@ import java.util.Objects;
 import static javafx.scene.paint.Color.*;
 
 /**
+ * Controls manager report page.
  * @Author Christian Piri
  * @Version v1.5
  */
-
 public class ManagerReportController {
     @FXML
     private Label txtSQLConnection, lblSitting, lblTotalCost,
