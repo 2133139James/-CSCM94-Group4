@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -31,7 +32,10 @@ public class WaiterController implements Initializable {
     private Scene scene;
     private Parent root;
 
-
+    @FXML
+    private Button serveOrderButton;
+    @FXML
+    private Button bookTableButton;
     @FXML
     private TableView<WaiterTicket> waiterTickets;
     @FXML
@@ -42,6 +46,14 @@ public class WaiterController implements Initializable {
     private TableColumn<WaiterTicket, String> sideToServe;
     @FXML
     private TableColumn<WaiterTicket, String> drinkToServe;
+    @FXML
+    private TableView<Booking> approveBookings;
+    @FXML
+    private TableColumn<Booking, String> requestedDate;
+    @FXML
+    private TableColumn<Booking, Number> table;
+    @FXML
+    private TableColumn<Booking, Number> numberOfPeople;
 
     public void getTicketTable() {
         // factory design pattern
@@ -59,17 +71,48 @@ public class WaiterController implements Initializable {
         }
     }
 
+    public void getUnapprovedBookings() {
+        BookingHandler handler = new BookingHandler();
+        ObservableList<Booking> bookings = handler.getUnapprovedBookings();
+        try {
+            table.setCellValueFactory(cellData -> cellData.getValue().simpleTableID());
+            requestedDate.setCellValueFactory(cellData -> cellData.getValue().simpleDateTime());
+            numberOfPeople.setCellValueFactory(cellData -> cellData.getValue().simpleNumberGuests());
+            approveBookings.setItems(bookings);
+        } catch (NullPointerException n) {
+            System.out.println(" ");
+        }
+    }
+
+    public void serve(ActionEvent e){
+        int index = waiterTickets.getSelectionModel().getSelectedIndex();
+        WaiterTicket ticket = waiterTickets.getItems().get(index);
+        getTicketTable();
+    }
+
+    public void book(ActionEvent e) {
+        int index = approveBookings.getSelectionModel().getSelectedIndex();
+        Booking booking = approveBookings.getItems().get(index);
+        booking.approveBooking();
+        getUnapprovedBookings();
+    }
+
+    /*
+     public void markAsComplete() {
+         int index = outstandingOrders.getSelectionModel().getSelectedIndex();
+         int referenceNum;
+         String theOrderType;
+         Orders order = outstandingOrders.getItems().get(index);
+         referenceNum = order.referenceNumber();
+         theOrderType = order.orderTypes();
+         KitchenHandler handler = new KitchenHandler();
+         handler.finishCook(referenceNum,theOrderType);
+         getOutstandingTable();
+     }
+
+     */
 
 
-
-
-
-
-
-
-
-
-    @FXML
     public void switchToAccount(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Account.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -79,9 +122,8 @@ public class WaiterController implements Initializable {
     }
 
     /**
-     Switches to staffs login page.
+     Switches to staff login page.
      @param event is to trigger fxml swap */
-    @FXML
     public void switchToStaffLogin(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StaffLogin.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -93,6 +135,7 @@ public class WaiterController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getTicketTable();
+        getUnapprovedBookings();
     }
 
 

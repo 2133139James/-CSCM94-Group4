@@ -21,9 +21,10 @@ public class WaiterHandler extends DatabaseHandler {
 
             while (resultSet.next()) {
                 ticket = new WaiterTicket(resultSet.getInt(1),
-                        resultSet.getString(2),
                         resultSet.getString(3),
-                        resultSet.getString(4));
+                        resultSet.getString(5),
+                        resultSet.getString(4),
+                        resultSet.getInt(6));
                 ticketList.add(ticket);
             }
         } catch (NullPointerException n) {
