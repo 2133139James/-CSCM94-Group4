@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.WaiterController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.WaiterController">
    <children>
       <Text fx:id="titleWaiter" layoutX="265.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiter" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="serveOrderButton" onAction="#serve" layoutX="137.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Serve" />
-      <Button fx:id="bookTableButton" onAction="#book" layoutX="443.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Book" />
+      <Button fx:id="serveOrderButton" layoutX="137.0" layoutY="306.0" mnemonicParsing="false" onAction="#serve" prefHeight="25.0" prefWidth="116.0" text="Serve" />
+      <Button fx:id="bookTableButton" layoutX="443.0" layoutY="306.0" mnemonicParsing="false" onAction="#book" prefHeight="25.0" prefWidth="78.0" text="Book" />
       <Text fx:id="completedOrdersText" layoutX="119.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Orders (Table Service)" />
       <Text fx:id="unbookedTablesText" layoutX="437.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unbooked Tables" />
       <Button layoutX="249.0" layoutY="352.0" mnemonicParsing="false" onAction="#switchToStaffLogin" prefHeight="25.0" prefWidth="116.0" text="Logout" />
@@ -28,10 +27,11 @@
       <TableView fx:id="approveBookings" layoutX="400.0" layoutY="91.0" prefHeight="200.0" prefWidth="180.0">
          <columns>
             <TableColumn fx:id="requestedDate" prefWidth="60.0" text="Requested Time" />
-            <TableColumn  fx:id="table" prefWidth="60.0" text="Table" />
+            <TableColumn fx:id="table" prefWidth="60.0" text="Table" />
             <TableColumn fx:id="numberOfPeople" prefWidth="60.0" text="Number of Guests" />
          </columns>
       </TableView>
       <Button layoutX="32.0" layoutY="352.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="25.0" prefWidth="102.0" text="Profile" />
+      <Button layoutX="431.0" layoutY="352.0" mnemonicParsing="false" onAction="#switchToTakeawayCollection" prefHeight="25.0" prefWidth="138.0" text="Takeaway Collection" />
    </children>
 </Pane>
