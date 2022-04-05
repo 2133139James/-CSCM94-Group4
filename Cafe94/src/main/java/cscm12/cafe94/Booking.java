@@ -1,6 +1,9 @@
 package cscm12.cafe94;
 
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,8 +43,21 @@ public class Booking {
         return numberOfGuests;
     }
 
-    public int getTableID() {
-        return tableID;
+    public SimpleIntegerProperty simpleNumberGuests() {
+        return new SimpleIntegerProperty(numberOfGuests);
+    }
+
+    public SimpleStringProperty simpleDateTime() {
+        DateTimeHelper helper = new DateTimeHelper();
+        String date =  helper.printDate(bookingDate);
+        String time = helper.printTime(bookingDate);
+        SimpleStringProperty simple = new SimpleStringProperty(date+" "+
+                time);
+        return simple;
+    }
+
+    public SimpleIntegerProperty simpleTableID() {
+        return new SimpleIntegerProperty(tableID);
     }
 
     public LocalDateTime getBookingDate() {
