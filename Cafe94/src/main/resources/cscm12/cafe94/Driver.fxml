@@ -24,6 +24,6 @@
             <TableColumn fx:id="drink" prefWidth="75.0" text="Drink" />
         </columns>
       </TableView>
-      <Button layoutX="29.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToAccounts" text="Profile" />
+      <Button layoutX="29.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToAccount" text="Profile" />
    </children>
 </Pane>

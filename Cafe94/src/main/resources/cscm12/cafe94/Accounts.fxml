@@ -33,11 +33,6 @@
       <Label fx:id="staffLName" layoutX="96.0" layoutY="83.0" prefHeight="18.0" prefWidth="70.0" />
       <Label fx:id="staffHoursToWork" layoutX="118.0" layoutY="101.0" prefHeight="18.0" prefWidth="91.0" />
       <Label fx:id="staffHoursWorked" layoutX="126.0" layoutY="119.0" prefHeight="18.0" prefWidth="91.0" />
-      <ToolBar layoutY="440.0" prefHeight="40.0" prefWidth="720.0">
-        <items>
-            <Button fx:id="staffLogoutButton" mnemonicParsing="false" onAction="#switchToStaffLogin" text="Logout" />
-        </items>
-      </ToolBar>
       <Label fx:id="staffType" layoutX="137.0" layoutY="22.0" prefHeight="35.0" prefWidth="110.0">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -48,5 +43,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <Button fx:id="staffLogoutButton1" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#switchToStaffLogin" text="Logout" />
    </children>
 </AnchorPane>

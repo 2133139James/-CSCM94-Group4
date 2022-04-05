@@ -1,0 +1,11 @@
+     public void markAsComplete() {
+         int index = outstandingOrders.getSelectionModel().getSelectedIndex();
+         int referenceNum;
+         String theOrderType;
+         Orders order = outstandingOrders.getItems().get(index);
+         referenceNum = order.referenceNumber();
+         theOrderType = order.orderTypes();
+         KitchenHandler handler = new KitchenHandler();
+         handler.finishCook(referenceNum,theOrderType);
+         getOutstandingTable();
+     }
