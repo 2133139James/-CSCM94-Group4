@@ -16,6 +16,7 @@
       </Text>
       <TableView fx:id="deliveryTickets" layoutX="110.0" layoutY="125.0" prefHeight="200.0" prefWidth="375.0">
         <columns>
+          <TableColumn fx:id="deliveryID" prefWidth="75.0" text="Delivery ID" />
           <TableColumn fx:id="deliveryAddress" prefWidth="75.0" text="Delivery Address" />
             <TableColumn fx:id="main" prefWidth="75.0" text="Main" />
             <TableColumn fx:id="side" prefWidth="75.0" text="Side" />
