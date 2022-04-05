@@ -28,5 +28,6 @@
       <Button fx:id="bookButton" layoutX="107.0" layoutY="325.0" mnemonicParsing="false" onAction="#book" prefHeight="25.0" prefWidth="106.0" text="Request Booking" />
       <Button fx:id="cancelButton" layoutX="475.0" layoutY="325.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
       <TextField fx:id="cancelField" layoutX="356.0" layoutY="325.0" prefHeight="25.0" prefWidth="106.0" text="Enter BookingID" />
+      <Text layoutX="232.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.1171875" />
    </children>
 </Pane>

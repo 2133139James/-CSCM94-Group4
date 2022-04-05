@@ -4,13 +4,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javax.xml.soap.Text;
 import java.awt.*;
+import java.awt.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -47,9 +48,11 @@ public class BookingController implements Initializable {
     private TextField minute;
     @FXML
     private TextField cancelField;
+    @FXML
+    private Label messageText;
 
     /**
-     * Checks database for overlapping bookings, makes booking if there isn't one.
+     * Checks database for overlapping bookings, makes booking if there isn't one. Informs user
      */
     public void book(){
         DateTimeHelper helper = new DateTimeHelper();
@@ -61,7 +64,13 @@ public class BookingController implements Initializable {
                         Integer.parseInt(hour.getText()),
                         Integer.parseInt(minute.getText()))
                 );
-        Booking.book();
+        if (newBooking.checkTimeslot()){
+            newBooking.uploadBooking();
+        } else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Timeslot already booked! Please choose another table.");
+            alert.show();
+        }
     }
 
 
