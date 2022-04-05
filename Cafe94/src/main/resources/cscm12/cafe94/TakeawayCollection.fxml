@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.TakeawayCollectionController">
+   <children>
+      <Button layoutX="326.0" layoutY="343.0" mnemonicParsing="false"  prefHeight="17.0" prefWidth="130.0" text="Logout" />
+      <Text fx:id="completeOrdersTextDel" layoutX="225.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Takeaways" />
+      <Button fx:id="deliverOrderButton" onAction="#deliver" layoutX="144.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Finished" />
+      <Text fx:id="titleDriver" layoutX="222.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Takeaways">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TableView fx:id="takeawayTickets" layoutX="110.0" layoutY="125.0" prefHeight="200.0" prefWidth="375.0">
+        <columns>
+          <TableColumn fx:id="ID" prefWidth="75.0" text="Delivery ID" />
+            <TableColumn fx:id="main" prefWidth="75.0" text="Main" />
+            <TableColumn fx:id="side" prefWidth="75.0" text="Side" />
+            <TableColumn fx:id="drink" prefWidth="75.0" text="Drink" />
+        </columns>
+      </TableView>
+      <Button layoutX="29.0" layoutY="343.0" mnemonicParsing="false"
+              text="Profile" />
+   </children>
+</Pane>
