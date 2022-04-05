@@ -29,8 +29,10 @@ public class DeliveryHandler {
             PreparedStatement checkDatabase = connect.prepareStatement(query);
             ResultSet resultSet = checkDatabase.executeQuery();
             DriverTicket ticket = null;
+            System.out.println(resultSet.getFetchSize());
 
             while (resultSet.next()) {
+                System.out.println("Hi");
                 ticket = new DriverTicket(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
@@ -39,6 +41,7 @@ public class DeliveryHandler {
                         resultSet.getString(6));
                 ticketList.add(ticket);
             }
+            System.out.println(ticketList.size());
         } catch (NullPointerException n) {
             System.out.println(" ");
         } catch (Exception e) {
