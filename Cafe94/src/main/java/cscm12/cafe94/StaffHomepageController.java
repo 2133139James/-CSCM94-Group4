@@ -81,6 +81,7 @@ public class StaffHomepageController implements Initializable {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StaffLogin.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("Blue.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
@@ -94,6 +95,7 @@ public class StaffHomepageController implements Initializable {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ManageStaff.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("Blue.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
@@ -107,6 +109,7 @@ public class StaffHomepageController implements Initializable {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ManageStaff.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("Blue.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
