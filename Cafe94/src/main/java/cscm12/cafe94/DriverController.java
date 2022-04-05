@@ -19,19 +19,22 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import static cscm12.cafe94.StaffLoginController.staffSession;
 
+
+/**
+ * Controls the delivery driver page.
+ * @author Paul Norman
+ * @version 1.1
+ */
 public class DriverController implements Initializable {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-
     @FXML
     private Button deliverOrderButton;
     @FXML
     private TableView<DriverTicket> deliveryTickets;
-    @FXML
-    private TableColumn<DriverTicket, Number> orderID;
     @FXML
     private TableColumn<DriverTicket, String> deliveryAddress;
     @FXML
@@ -41,13 +44,13 @@ public class DriverController implements Initializable {
     @FXML
     private TableColumn<DriverTicket, String> drink;
 
+    /**
+     * Casts current driver for a specific driver based on their login username;
+     */
     public void getTicketTable() {
-        // factory design pattern
-        ///
         DeliveryHandler handler = new DeliveryHandler();
         ObservableList<DriverTicket> tickets = handler.getOrdersForDriver(staffSession);
         try {
-            orderID.setCellValueFactory(cellData -> cellData.getValue().orderIDProperty());
             deliveryAddress.setCellValueFactory(cellData -> cellData.getValue().deliveryAddressProperty());
             main.setCellValueFactory(cellData -> cellData.getValue().getDrink());
             side.setCellValueFactory(cellData -> cellData.getValue().getDrink());
@@ -59,11 +62,12 @@ public class DriverController implements Initializable {
     }
 
     /** Sets delivery order to IsDelivered.
-     * @param event
+     * @param event Button press.
      */
     public void deliver(ActionEvent event){
         int index = deliveryTickets.getSelectionModel().getSelectedIndex();
         DriverTicket ticket = deliveryTickets.getItems().get(index);
+        ticket.deliver();
         getTicketTable();
     }
 

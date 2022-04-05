@@ -57,4 +57,21 @@ public class DriverTicket extends Ticket {
     public void setDriverName(String driverName) {
         this.driverName.set(driverName);
     }
+
+
+    /**
+     * Sets the order as delivered in database.
+     */
+    public void deliver(){
+        DatabaseHandler handler = new DatabaseHandler();
+        try{
+            handler.tableUpdater("UPDATE DeliveryOrders " +
+                            "SET IsDelivered = 'true' " +
+                            "WHERE DeliveryOrderID = " + orderID.intValue() + ";",
+                    "Query may be incorrectly formatted");
+        } catch (NullPointerException e){
+            System.out.println("A field is empty");
+        }
+    }
+
 }
