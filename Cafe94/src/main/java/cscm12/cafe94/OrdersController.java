@@ -117,6 +117,17 @@ public class OrdersController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    /**   [switchToCreateFood]
+     Switches to Create food page.
+     @param event is to trigger fxml swap */
+    @FXML
+    public void switchToCreateFood(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreateFoodItem.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

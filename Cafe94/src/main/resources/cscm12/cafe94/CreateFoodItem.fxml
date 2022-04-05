@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.NewFoodItemController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cscm12.cafe94.NewFoodItemController">
    <children>
       <Text layoutX="183.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Item">
          <font>
@@ -26,5 +25,6 @@
       <Button fx:id="backButton" layoutX="93.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Create Item" />
       <Text layoutX="232.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.1171875" />
       <CheckBox layoutX="224.0" layoutY="243.0" mnemonicParsing="false" />
+      <Button layoutX="424.0" layoutY="333.0" mnemonicParsing="false" onAction="#switchToChef" prefHeight="25.0" prefWidth="106.0" text="Back" />
    </children>
 </Pane>
