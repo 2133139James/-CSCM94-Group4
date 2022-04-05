@@ -38,6 +38,6 @@
           <TableColumn fx:id="chooseSpecial" prefWidth="75.0" text="Main" />
         </columns>
       </TableView>
-      <Button layoutX="28.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToCreateFood" prefHeight="25.0" prefWidth="89.0" text="Add to Menu" textAlignment="CENTER" />
+      <Button fx:id="ege" layoutX="28.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToCreateFood" prefHeight="25.0" prefWidth="89.0" text="Add to Menu" textAlignment="CENTER" />
    </children>
 </Pane>
