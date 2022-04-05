@@ -113,6 +113,14 @@ public class StaffHomepageController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void switchToAccount(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Accounts.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     /**[initialize]
      Switches to Managers page.

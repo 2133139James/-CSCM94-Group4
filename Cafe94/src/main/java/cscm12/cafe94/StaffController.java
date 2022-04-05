@@ -201,19 +201,7 @@ public class StaffController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-    /**
-     Switches to Account page.
-     @param event is to trigger fxml swap */
-    @FXML
-    public void switchToAccount(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Account.fxml")));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    /**
+    /**   [switchToManagerReport]
      Switches to Account page.
      @param event is to trigger fxml swap */
     @FXML
@@ -224,7 +212,17 @@ public class StaffController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    /**
+     Switches to Account page.
+     @param event is to trigger fxml swap */
+    @FXML
+    public void switchToAccount(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Accounts.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getStaffTable();

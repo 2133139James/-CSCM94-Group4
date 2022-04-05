@@ -58,7 +58,7 @@ public class StaffLoginController {
                     fxml = ("Chef.fxml");
                     staffSession = resultSet.getString("StaffUsername");
                 }
-                else if (resultSet.getString("StaffType").equals("Driver")) {
+                else if (resultSet.getString("StaffType").equals("DeliveryDriver")) {
                     fxml = ("Driver.fxml");
                     staffSession = resultSet.getString("StaffUsername");
                 }

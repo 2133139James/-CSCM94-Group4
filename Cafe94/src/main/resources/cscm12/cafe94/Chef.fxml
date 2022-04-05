@@ -18,12 +18,12 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Text>
-      <Text fx:id="chooseSpecialText" layoutX="453.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Special" textAlignment="CENTER" wrappingWidth="102.251953125">
+      <Text fx:id="chooseSpecialText" layoutX="453.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Special" textAlignment="CENTER" wrappingWidth="102.251953125">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Text>
-      <Button fx:id="setSpecialButton" layoutX="453.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Set Special" textAlignment="CENTER" />
-      <TableView fx:id="outstandingOrders" layoutX="28.0" layoutY="110.0" prefHeight="229.0" prefWidth="395.0">
+      <Button fx:id="setSpecialButton" layoutX="453.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Set Special" textAlignment="CENTER" />
+      <TableView fx:id="outstandingOrders" layoutX="28.0" layoutY="110.0" prefHeight="229.0" prefWidth="375.0">
         <columns>
           <TableColumn fx:id="orderRef" prefWidth="75.0" text="Order Reference" />
           <TableColumn fx:id="orderMain" prefWidth="75.0" text="Main" />
@@ -32,11 +32,11 @@
             <TableColumn fx:id="orderType" prefWidth="75.0" text="Order Type" />
         </columns>
       </TableView>
-      <ChoiceBox layoutX="453.0" layoutY="154.0" prefHeight="25.0" prefWidth="102.0" />
-      <Text fx:id="chooseSpecialText1" layoutX="459.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main" textAlignment="CENTER" wrappingWidth="89.251953125">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Text>
       <Button layoutX="453.0" layoutY="320.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="25.0" prefWidth="102.0" text="Profile" />
+      <TableView fx:id="specialList" layoutX="467.0" layoutY="110.0" prefHeight="128.0" prefWidth="75.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Main" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

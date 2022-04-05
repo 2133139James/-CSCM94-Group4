@@ -24,7 +24,8 @@ public class DeliveryHandler {
         DatabaseHandler handler = new DatabaseHandler();
         Connection connect = handler.database();
         try {
-            String query = "SELECT * from vDriverTicket WHERE DriverAssigned=" + driverID;
+            String query = "SELECT * from vDriverTicket WHERE DriverAssigned='" + driverID+"'";
+            System.out.println(query);
             PreparedStatement checkDatabase = connect.prepareStatement(query);
             ResultSet resultSet = checkDatabase.executeQuery();
             DriverTicket ticket = null;
