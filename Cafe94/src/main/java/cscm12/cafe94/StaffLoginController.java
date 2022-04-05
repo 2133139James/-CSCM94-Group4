@@ -79,4 +79,17 @@ public class StaffLoginController {
         stage.setScene(scene);
         stage.show();
     }
+    /**  [switchToManageStaff]
+     Switches to manage staff page.
+     This page gives access to @getStaffTable, @newStaff, @editStaff and @deleteStaff.
+     @param event triggers button to go to the fxml upon clicking. */
+    @FXML
+    public void switchToStartScreen(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Cafe94.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("Blue.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+    }
 }

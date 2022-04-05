@@ -63,7 +63,7 @@ public class KitchenHandler extends DatabaseHandler {
      * @param orderID
      * @param orderType
      */
-    public void finishTicket(int orderID, String orderType){
+    public void finishCook(int orderID, String orderType){
         String id = String.valueOf(orderID);
         try {
             if (orderType.toLowerCase().contains("delivery")) {

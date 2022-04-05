@@ -111,7 +111,7 @@ public class OrdersController implements Initializable {
      @param event is to trigger fxml swap */
     @FXML
     public void switchToAccount(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Account.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Accounts.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -128,6 +128,20 @@ public class OrdersController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void markAsComplete() {
+        int index = outstandingOrders.getSelectionModel().getSelectedIndex();
+        int referenceNum;
+        String theOrderType;
+        Orders order = outstandingOrders.getItems().get(index);
+        referenceNum = order.referenceNumber();
+        theOrderType = order.orderTypes();
+        System.out.println(theOrderType);
+        KitchenHandler handler = new KitchenHandler();
+        handler.finishCook(referenceNum,theOrderType);
+        getOutstandingTable();
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -21,5 +21,6 @@
       <TextField fx:id="staffLoginUsername" alignment="CENTER" layoutX="285.0" layoutY="207.0" onAction="#switchToStaffAccount" promptText="Username" />
       <PasswordField fx:id="staffLoginPassword" alignment="CENTER" layoutX="286.0" layoutY="240.0" onAction="#switchToStaffAccount" promptText="Password" />
       <Button fx:id="staffLoginButton" alignment="CENTER" layoutX="338.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToStaffAccount" text="Enter" />
+      <Button alignment="CENTER" layoutX="339.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchToStartScreen" text="Back" />
    </children>
 </AnchorPane>

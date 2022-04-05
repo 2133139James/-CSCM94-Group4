@@ -31,7 +31,7 @@
       <Label fx:id="staffHoursToWorkDay" layoutX="104.0" layoutY="101.0" prefHeight="18.0" prefWidth="18.0" />
       <ToolBar layoutY="440.0" prefHeight="40.0" prefWidth="720.0">
         <items>
-            <Button fx:id="staffManageStaffButton" mnemonicParsing="false" onAction="#switchToAccounts" prefHeight="26.0" prefWidth="54.0" text="Staff" />
+            <Button fx:id="staffManageStaffButton" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="26.0" prefWidth="54.0" text="Staff" />
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Report" onAction="#switchToManagerReport" />
             <Button fx:id="staffLogoutButton" mnemonicParsing="false" onAction="#switchToStaffLogin" text="Logout" />
         </items>

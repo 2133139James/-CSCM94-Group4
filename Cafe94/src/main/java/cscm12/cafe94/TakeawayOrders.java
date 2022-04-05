@@ -1,20 +1,42 @@
 package cscm12.cafe94;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Objects;
+import java.util.ResourceBundle;
 /**
  * [TakeawayOrders]
  * Sub class for handling takeaway orders.
  * @author Patrick Rose
  * @version 1.0
  */
-public class TakeawayOrders{
+public class TakeawayOrders implements Initializable{
     private int waitTime;
     private int main;
     private int side;
     private int drink;
     private int takeawayCustomerID;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     public TakeawayOrders(int waitTime,int main, int side, int drink, int takeawayCustomerID){
         this.waitTime = waitTime;
@@ -23,6 +45,121 @@ public class TakeawayOrders{
         this.drink = drink;
         this.takeawayCustomerID = takeawayCustomerID;
     }
+    @FXML
+    private TableView<Menu> mains;
+    @FXML
+    private TableColumn<Menu, String> Mains;
+
+    @FXML
+    private TableView<Menu> sides;
+    @FXML
+    private TableColumn<Menu, String> Sides;
+
+    @FXML
+    private TableView<Menu> drinks;
+    @FXML
+    private TableColumn<Menu, String> Drinks;
+
+    public ObservableList<Menu> getDrinks() {
+        DatabaseHandler handler = new DatabaseHandler();
+        Connection connect = handler.database();
+        ObservableList<Menu> drinkItems = FXCollections.observableArrayList();
+        try {
+            Statement statement = connect.createStatement();
+            String sql = "SELECT ItemName FROM SimpleMenu WHERE ItemType = 'Drink';";
+            PreparedStatement checkDatabase = connect.prepareStatement(sql);
+            ResultSet resultSet = checkDatabase.executeQuery();
+            Menu menu;
+            while (resultSet.next()) {
+                menu = new Menu(resultSet.getString("ItemName"));
+                drinkItems.add(menu);
+            }
+            statement.close();
+            connect.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return drinkItems;
+    }
+
+
+    public void getDrinkTable() {
+        ObservableList<Menu> drinkList = getDrinks();
+        try {
+            Drinks.setCellValueFactory(cellData -> cellData.getValue().itemProperty());
+            drinks.setItems(drinkList);
+        } catch (NullPointerException n) {
+            System.out.println(" ");
+        }
+    }
+
+    public ObservableList<Menu> getMains() {
+        DatabaseHandler handler = new DatabaseHandler();
+        Connection connect = handler.database();
+        ObservableList<Menu> mainItems = FXCollections.observableArrayList();
+        try {
+            Statement statement = connect.createStatement();
+            String sql = "SELECT ItemName FROM SimpleMenu WHERE ItemType = 'Main';";
+            PreparedStatement checkDatabase = connect.prepareStatement(sql);
+            ResultSet resultSet = checkDatabase.executeQuery();
+            Menu menu;
+            while (resultSet.next()) {
+                menu = new Menu(resultSet.getString("ItemName"));
+                mainItems.add(menu);
+            }
+            statement.close();
+            connect.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return mainItems;
+    }
+
+
+    public void getMainTable() {
+        ObservableList<Menu> mainList = getDrinks();
+        try {
+            Mains.setCellValueFactory(cellData -> cellData.getValue().itemProperty());
+            mains.setItems(mainList);
+        } catch (NullPointerException n) {
+            System.out.println(" ");
+        }
+    }
+
+
+    public ObservableList<Menu> getSides() {
+        DatabaseHandler handler = new DatabaseHandler();
+        Connection connect = handler.database();
+        ObservableList<Menu> sideItems = FXCollections.observableArrayList();
+        try {
+            Statement statement = connect.createStatement();
+            String sql = "SELECT ItemName FROM SimpleMenu WHERE ItemType = 'Side';";
+            PreparedStatement checkDatabase = connect.prepareStatement(sql);
+            ResultSet resultSet = checkDatabase.executeQuery();
+            Menu menu;
+            while (resultSet.next()) {
+                menu = new Menu(resultSet.getString("ItemName"));
+                sideItems.add(menu);
+            }
+            statement.close();
+            connect.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sideItems;
+    }
+
+
+    public void getSideTable() {
+        ObservableList<Menu> sideList = getSides();
+        try {
+            Sides.setCellValueFactory(cellData -> cellData.getValue().itemProperty());
+            sides.setItems(sideList);
+        } catch (NullPointerException n) {
+            System.out.println(" ");
+        }
+    }
+
     /**
      * [submitTakeawayOrder]
      * Adds the values of the TakeawayOrders object to the database.
@@ -141,5 +278,48 @@ public class TakeawayOrders{
     }
     public void setTakeawayCustomerID(int takeawayCustomerID) {
         this.takeawayCustomerID = takeawayCustomerID;
+    }
+
+    /**   [switchToCompleteOrderTak]
+     Switches to completed Takeaway page.
+     @param event triggers button to go to the fxml upon clicking. */
+    @FXML
+    public void switchToFinishOrderTak(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FinishOrderTakeaway.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**   [switchToCompleteOrderTab]
+     Switches to completed sit in page.
+     @param event triggers button to go to the fxml upon clicking. */
+    @FXML
+    public void switchToFinishOrderTab(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FinishOrderTableService.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**   [switchToOrderType]
+     Switches to landing page page.
+     @param event triggers button to go to the fxml upon clicking. */
+    @FXML
+    public void switchToOrders(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("OrderType.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("Error1");
+        getMainTable();
+        getDrinkTable();
+        getSideTable();
     }
 }
